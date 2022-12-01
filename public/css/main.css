@@ -1,0 +1,67 @@
+.form-container {
+    height: fit-content;
+    /*overflow: hidden;*/
+    margin-right: 0;
+}
+.log{
+    top: 0px;
+}
+.container{
+    background-color: rgb(255, 255, 255);
+
+}
+
+.header h1{
+    padding-top: 50px;
+    color:#42505C;
+    font-weight: 68px;
+}
+.header p{
+    margin-top: 25px;
+}
+.container p span{
+    color: #4743E0;
+}
+.container form{
+    text-align: right;
+}
+.container form {
+    right: 25%;
+    left: 25%;
+}
+form{
+    padding-top: 20px;
+}
+.form-control{
+    text-align: right;
+    direction: rtl;
+}
+.form-check-label{
+    color: #4743E0;
+}
+
+.breaker{
+    width: 217px;
+    height: 36px;
+    border-bottom: 1px dashed black;
+    position: relative;
+    margin: auto;
+}
+.forgetP{
+    position: absolute;
+    color: #4743E0;
+    cursor: pointer;
+    direction: rtl;
+    margin-top: -7px;
+    margin-bottom: 16px;
+}
+.btn-container{
+    padding-top: 20px;
+}
+.btn-primary{
+    width: 300px;
+}
+
+footer p{
+    cursor: pointer;
+}
