@@ -18,12 +18,53 @@
         </h4>
 
     </div>
-        <div class="my-5 d-flex justify-content-evenly">
+
+    <div class="my-5 d-flex justify-content-evenly">
         <h4>
             <a href="{{route("admin.captains")}}">Show All Captains</a>
         </h4>
         <h4>
             <a href="{{route("admin.captainAdd")}}">Add Captain</a>
+        </h4>
+
+    </div>
+
+    <div class="my-5 d-flex justify-content-evenly">
+        <h4>
+            <a href="{{route("admin.interns")}}">Show All Interns</a>
+        </h4>
+        <h4>
+            <a href="{{route("admin.internAdd")}}">Add Intern</a>
+        </h4>
+
+    </div>
+        <div class="my-5 d-flex justify-content-evenly">
+        <h4>
+            <a href="{{route("admin.branches")}}">Show All Branches</a>
+        </h4>
+        <h4>
+            <a href="{{route("admin.branchAdd")}}">Add Branch</a>
+        </h4>
+
+    </div>
+    </div>
+        <div class="my-5 d-flex justify-content-evenly">
+        <h4>
+            <a href="{{route("admin.subscriptions")}}">Show All Subscriptions</a>
+        </h4>
+        <h4>
+            <a href="{{route("admin.subsAdd")}}">Add Subscription</a>
+        </h4>
+
+    </div>
+
+    <div class="my-5 d-flex justify-content-evenly">
+        <h4>
+            <a href="{{route("admin.packages")}}">Show All Packages</a>
+        </h4>
+
+        <h4>
+            <a href="{{route("admin.packageAdd")}}">Add Package</a>
         </h4>
 
     </div>

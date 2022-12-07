@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin\Captain;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Captain\CreatesCaptain;
+use App\Http\Traits\Captain\CreatesIntern;
 use App\Models\captain\Captain;
 use App\Models\manager\Manager;
 use App\Models\User;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller
 {
-    use CreatesCaptain;
+    use CreatesIntern;
 
     /**
      * Get a validator for an incoming registration request.

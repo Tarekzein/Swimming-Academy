@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\Manager;
+namespace App\Http\Controllers\admin\Captain;
 
 use App\Http\Controllers\Controller;
 use App\Models\manager\Manager;

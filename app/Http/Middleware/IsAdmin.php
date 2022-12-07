@@ -17,10 +17,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $admin = Admin::all()->where("uid",auth()->id());
+//        $admin =  auth()->user()->admins()->where("uid",auth()->user()->id)->get()[0];
+        $admin =  Admin::all()->where("uid",auth()->user()->id);
+        if(count($admin) !=0)
+            return $next($request);
 
-        if(!$admin)
-            return redirect("/");
-        return $next($request);
+        return redirect("/");
     }
 }

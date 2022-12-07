@@ -4,6 +4,7 @@
     <div class="container">
 
         <h1>Managers List</h1>
+        <x-searchbar/>
 
         <table class="table">
             <thead>
@@ -19,7 +20,7 @@
                 <th scope="col">Options</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-body">
             @foreach($managers as $manager)
                 @php
                 $user=\App\Models\User::find($manager->uid);

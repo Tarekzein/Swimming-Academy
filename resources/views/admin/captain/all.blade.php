@@ -3,7 +3,9 @@
 @section("content")
     <div class="container">
 
-        <h1>Managers List</h1>
+        <h1>Captains List</h1>
+
+        <x-searchbar/>
 
         <table class="table">
             <thead>
@@ -19,7 +21,7 @@
                 <th scope="col">Options</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-body">
             @foreach($captains as $captain)
                 @php
                     $user=\App\Models\User::find($captain->uid);
@@ -40,7 +42,7 @@
                                 <a href="{{route("admin.captainUpdate",$user->id)}}" class="btn btn-primary btn-sm">Edite</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{route("admin.managerDelete",$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{route("admin.captainDelete",$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         </ul>
                     </td>

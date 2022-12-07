@@ -28,9 +28,28 @@
                                 {{Auth::user()->name}}
                             </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @if(\App\Models\admin\Admin::all()->where("uid",auth()->user()->id))
+                            @php
+
+                            $admin=\App\Models\admin\Admin::all()->where("uid",auth()->user()->id);
+                            $intern=\App\Models\intern\Intern::all()->where("uid",auth()->user()->id);
+                            $manager=\App\Models\manager\Manager::all()->where("uid",auth()->user()->id);
+                            $captain=\App\Models\captain\Captain::all()->where("uid",auth()->user()->id);
+                            @endphp
+                            @if(count($admin)!==0)
                                 <a class="dropdown-item" href="{{route("dashboard")}}" >
                                     Dashboard
+                                </a>
+                            @elseif(count($intern)!==0)
+                                <a class="dropdown-item" href="#" >
+                                    Profile
+                                </a>
+                            @elseif(count($manager)!==0)
+                                <a class="dropdown-item" href="#" >
+                                    Profile
+                                </a>
+                            @elseif(count($captain)!==0)
+                                <a class="dropdown-item" href="#" >
+                                    Profile
                                 </a>
                             @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"

@@ -23,7 +23,7 @@ trait UpdatesCaptains{
         $this->validator($request->all())->validate();
         $response= $this->update($request,$user);
 
-        return $response? back()->with("message","Manager Updated Successfully"):back()->with("error","An Error Occurred");
+        return $response? back()->with("message","Captain Updated Successfully"):back()->with("error","An Error Occurred");
     }
 
 }
