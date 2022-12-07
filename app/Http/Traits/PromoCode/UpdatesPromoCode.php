@@ -1,32 +1,36 @@
 <?php
 
-namespace App\Http\Traits\Package;
+namespace App\Http\Traits\PromoCode;
 
+use App\Models\Academy;
+use App\Models\admin\PromoCode;
 use App\Models\Branch;
 use App\Models\PackageType;
 use App\Models\SubscriptionType;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 trait UpdatesPromoCode{
 
-    public function showForm(PackageType $package){
+    public function showForm(PromoCode $promo){
+        $academies=Academy::all();
+        $branches=Branch::all();
 
         $context=[
-            "package"=>$package,
-            "subscriptions"=>SubscriptionType::all(),
-            "branches"=>Branch::all(),
+            "promo"=>$promo,
+            "academies"=>$academies,
+            "branches"=>$branches,
         ];
+
 //        dd($context);
-        return view("admin.package.update",$context);
+        return view("admin.promocode.update",$context);
     }
 
-    public function updatePackage(Request $request,PackageType $package) {
+    public function updatePackage(Request $request,PromoCode $promo) {
 
         $this->validator($request->all())->validate();
-        $response= $this->update($request->all(),$package);
+        $response= $this->update($request->all(),$promo);
 
-        return $response? back()->with("message","Package Updated Successfully"):back()->with("error","An Error Occurred");
+        return $response? back()->with("message","Promo-Code Updated Successfully"):back()->with("error","An Error Occurred");
     }
 
 }

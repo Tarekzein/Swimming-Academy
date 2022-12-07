@@ -3,21 +3,33 @@
 @section("content")
     <div class="container">
 
-    <h1>Update Package Form</h1>
+    <h1>Update Promo-Code Form</h1>
 
-        <form method="post" action="{{route("admin.packageUpdate",$package->id)}}" enctype="multipart/form-data">
+        <form method="post" action="{{route("admin.promoUpdate",$promo->id)}}" enctype="multipart/form-data">
             @csrf
 
 
             <div class="row mb-3">
-                <label for="subs" class="col-md-4 col-form-label text-md-end">{{ __('Subscription') }}</label>
+                <label for="subs" class="col-md-4 col-form-label text-md-end">{{ __('Academy') }}</label>
                 <div class="col-md-6">
-                    <select class="form-select" required name="subsID" aria-label="Default select example">
-                        @foreach($subscriptions as $s)
-                            @php
-                                $branch=\App\Models\Branch::find($s->branchID);
-                            @endphp
-                            <option value="{{$s->id}}" {{$s->id==$package->subsID?'selected':''}}>{{$s->name}} - {{$branch->name}}</option>
+                    <select class="form-select" id="subs"  required name="academyID"
+                            aria-label="Default select example">
+                        @foreach($academies as $a)
+
+                            <option value="{{$a->id}}" {{$a->id==$promo->academyID?'selected':''}}>{{$a->name}} </option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+                <label for="branch" class="col-md-4 col-form-label text-md-end">{{ __('Branch') }}</label>
+                <div class="col-md-6">
+                    <select  class="form-select" id="branch" required name="branchID"
+                             aria-label="Default select example">
+                        @foreach($branches as $b)
+                            <option value="{{$b->id}}" {{$b->id==$promo->branchID? 'selected' :''}}>{{$b->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -26,12 +38,14 @@
 
 
             <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Package Name') }}</label>
+                <label for="code" class="col-md-4 col-form-label text-md-end">{{ __('Promo Code') }}</label>
 
                 <div class="col-md-6">
-                    <input id="package_name" value="{{$package->package_name}}" type="text" class="form-control @error('package_name') is-invalid @enderror" name="package_name"  required autocomplete="package_name" autofocus>
+                    <input id="code" type="text"
+                           class="form-control @error('code') is-invalid @enderror" name="code"
+                           value="{{ $promo->code }}" required autocomplete="code" autofocus>
 
-                    @error('package_name')
+                    @error('code')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                     </span>
@@ -40,12 +54,15 @@
             </div>
 
             <div class="row mb-3">
-                <label for="sessions_number" class="col-md-4 col-form-label text-md-end">{{ __('Sessions Number') }}</label>
+                <label for="discount_percent"
+                       class="col-md-4 col-form-label text-md-end">{{ __('Discount Value (%)') }}</label>
 
                 <div class="col-md-6">
-                    <input id="sessions_number" value="{{$package->sessions_number}}" type="number" class="form-control @error('sessions_number') is-invalid @enderror" name="sessions_number"  required autocomplete="sessions_number" autofocus>
+                    <input id="discount_percent" type="number"
+                           class="form-control @error('discount_percent') is-invalid @enderror" name="discount_percent"
+                           value="{{ $promo->discount_percent }}" required autocomplete="discount_percent" autofocus>
 
-                    @error('sessions_number')
+                    @error('discount_percent')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                     </span>
@@ -54,12 +71,13 @@
             </div>
 
             <div class="row mb-3">
-                <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
+                <label for="start_date" class="col-md-4 col-form-label text-md-end">{{ __('Start Date') }}</label>
 
                 <div class="col-md-6">
-                    <input id="price" value="{{$package->price}}" type="number" class="form-control @error('price') is-invalid @enderror" name="price" required autocomplete="price" autofocus>
+                    <input id="start_date" type="date" class="form-control @error('start_date') is-invalid @enderror"
+                           name="start_date" value="{{ $promo->start_date }}" required autocomplete="start_date" autofocus>
 
-                    @error('price')
+                    @error('start_date')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                     </span>
@@ -67,11 +85,25 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <label for="end_date" class="col-md-4 col-form-label text-md-end">{{ __('End Date') }}</label>
+
+                <div class="col-md-6">
+                    <input id="end_date" type="date" class="form-control @error('end_date') is-invalid @enderror"
+                           name="end_date" value="{{ $promo->end_date }}" required autocomplete="end_date" autofocus>
+
+                    @error('end_date')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
 
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Update Captain') }}
+                        {{ __('Update Code') }}
                     </button>
                 </div>
             </div>

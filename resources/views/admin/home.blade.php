@@ -69,5 +69,16 @@
 
     </div>
 
+    <div class="my-5 d-flex justify-content-evenly">
+        <h4>
+            <a href="{{route("admin.promocodes")}}">Show All Packages</a>
+        </h4>
+
+        <h4>
+            <a href="{{route("admin.promoAdd")}}">Add Package</a>
+        </h4>
+
+    </div>
+
     </div>
 @endsection

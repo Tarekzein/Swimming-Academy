@@ -151,9 +151,9 @@ Route::group(["prefix"=>"admin","middleware"=>["auth","isAdmin"]],function (){
         Route::get("/",[\App\Http\Controllers\admin\PromoCode\ViewController::class,"all"])->name("admin.promocodes");
         Route::get("/add",[\App\Http\Controllers\admin\PromoCode\CreateController::class,"showForm"])->name("admin.promoAdd");
         Route::post("/add",[\App\Http\Controllers\admin\PromoCode\CreateController::class,"add"])->name("admin.promoAdd");
-        Route::get("/update/{package}",[\App\Http\Controllers\admin\PromoCode\UpdateController::class,"showForm"])->name("admin.promoUpdate");
-        Route::post("/update/{package}",[\App\Http\Controllers\admin\PromoCode\UpdateController::class,"updatePackage"])->name("admin.promoUpdate");
-        Route::get("/delete/{package}",[\App\Http\Controllers\admin\PromoCode\DeleteController::class,"delete"])->name("admin.promoDelete");
+        Route::get("/update/{promo}",[\App\Http\Controllers\admin\PromoCode\UpdateController::class,"showForm"])->name("admin.promoUpdate");
+        Route::post("/update/{promo}",[\App\Http\Controllers\admin\PromoCode\UpdateController::class,"updatePackage"])->name("admin.promoUpdate");
+        Route::get("/delete/{promo}",[\App\Http\Controllers\admin\PromoCode\DeleteController::class,"delete"])->name("admin.promoDelete");
 
 
     });

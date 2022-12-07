@@ -3,8 +3,16 @@
 @section("content")
     <div class="container">
 
+        <div class="d-flex my-5 align-items-center position-relative">
+
         <h1>Promocode List</h1>
+            <div>
+
+                <a href="{{route("admin.promoAdd")}}" class="btn mx-5 btn-primary"> + Promo-code</a>
+            </div>
         <x-searchbar/>
+        </div>
+
 
         <table class="table">
             <thead>
@@ -40,10 +48,10 @@
                     <td>
                         <ul class="list-inline d-flex">
                             <li class="list-inline-item">
-                                <a href="{{route("admin.packageUpdate",$p->id)}}" class="btn btn-primary btn-sm">Edite</a>
+                                <a href="{{route("admin.promoUpdate",$p->id)}}" class="btn btn-primary btn-sm">Edite</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{route("admin.packageDelete",$p->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{route("admin.promoDelete",$p->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         </ul>
                     </td>
