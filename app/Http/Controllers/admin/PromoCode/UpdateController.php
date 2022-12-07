@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\Package;
+namespace App\Http\Controllers\admin\PromoCode;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Package\UpdatesPromoCode;
