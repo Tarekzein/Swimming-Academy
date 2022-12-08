@@ -66,7 +66,7 @@ Route::group(["prefix"=>"waves"],function (){
 // Admin Routes
 Route::group(["prefix"=>"admin","middleware"=>["auth","isAdmin"]],function (){
 
-    Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"index"])->name("dashboard");
+    Route::get("/dashboard",[\App\Http\Controllers\admin\DashboardController::class,"index"])->name("dashboard");
 
 //    Manager routes
 
@@ -159,4 +159,12 @@ Route::group(["prefix"=>"admin","middleware"=>["auth","isAdmin"]],function (){
     });
 
 
+});
+
+
+
+// Manager Routes
+
+Route::group(["prefix"=>"manager","middleware"=>["auth"]],function (){
+    Route::get("/profile",[\App\Http\Controllers\Manager\ProfileController::class,"index"])->name("manager.profile");
 });

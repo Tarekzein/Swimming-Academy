@@ -44,7 +44,7 @@
                                     Profile
                                 </a>
                             @elseif(count($manager)!==0)
-                                <a class="dropdown-item" href="#" >
+                                <a class="dropdown-item" href="{{route("manager.profile")}}" >
                                     Profile
                                 </a>
                             @elseif(count($captain)!==0)

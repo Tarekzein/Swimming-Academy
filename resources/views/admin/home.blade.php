@@ -71,11 +71,11 @@
 
     <div class="my-5 d-flex justify-content-evenly">
         <h4>
-            <a href="{{route("admin.promocodes")}}">Show All Packages</a>
+            <a href="{{route("admin.promocodes")}}">Show All PromoCodes</a>
         </h4>
 
         <h4>
-            <a href="{{route("admin.promoAdd")}}">Add Package</a>
+            <a href="{{route("admin.promoAdd")}}">Add PromoCode</a>
         </h4>
 
     </div>
