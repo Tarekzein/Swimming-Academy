@@ -38,6 +38,7 @@
         </h4>
 
     </div>
+
         <div class="my-5 d-flex justify-content-evenly">
         <h4>
             <a href="{{route("admin.branches")}}">Show All Branches</a>

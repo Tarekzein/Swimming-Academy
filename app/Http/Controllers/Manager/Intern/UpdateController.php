@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin\Intern;
+namespace App\Http\Controllers\Manager\Intern;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Intern\UpdatesIntern;
+use App\Models\Academy;
 use App\Models\intern\Intern;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -68,6 +69,18 @@ class UpdateController extends Controller
         $response= $intern[0]->save();
 
         return $response;
+    }
+
+    public function showForm(User $user){
+        $intern=$user->interns()->where("uid",$user->id)->get()[0];
+        $academies=Academy::all();
+        $context=[
+            "user"=>$user,
+            "intern"=>$intern,
+            'academies'=>$academies,
+        ];
+//        dd($context);
+        return view("manager.intern.update",$context);
     }
 
 }

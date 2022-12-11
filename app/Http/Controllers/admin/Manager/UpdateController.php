@@ -54,7 +54,7 @@ class UpdateController extends Controller
         $user->save();
 
         $uid=$user->id;
-        $manager=Manager::all()->where("uid",$uid);
+        $manager=Manager::where("uid",$uid)->get();
 //        dd($manager);
         $managerData=[
             "study_field"=> $data->input("study_field"),
