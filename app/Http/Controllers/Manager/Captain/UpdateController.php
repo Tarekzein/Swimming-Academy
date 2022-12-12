@@ -1,34 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Manager;
+namespace App\Http\Controllers\Manager\Captain;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\Captain\CreatesCaptain;
+use App\Http\Traits\Captain\UpdatesCaptains;
+use App\Http\Traits\Manager\CreatesManager;
 use App\Http\Traits\Manager\UpdatesManagers;
+use App\Models\captain\Captain;
 use App\Models\manager\Manager;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class ProfileController extends Controller
+class UpdateController extends Controller
 {
-    use UpdatesManagers;
+    use UpdatesCaptains;
 
-
-    public function index(Request $request){
-
-        return view("manager.profile",["user"=>$request->user()]);
-    }
-
-    public function showUpdateForm(User $user){
-        $manager=$user->managers()->where("uid",$user->id)->get()[0];
-
-        $context=[
-            "user"=>$user,
-            "manager"=>$manager,
-        ];
-//        dd($context);
-        return view("manager.update",$context);
-    }
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
 
     protected function validator(array $data)
     {
@@ -38,11 +34,6 @@ class ProfileController extends Controller
             'birthdate' => ['required'],
             'address' => ['required'],
             'whatsapp' => ['required'],
-            "study_field"=>['required'],
-            "current_employer"=>['required'],
-            "previous_experience"=>['required'],
-//            "personal_id"=>['required'],
-//            "facility_receipt"=>['required'],
         ]);
     }
 
@@ -60,53 +51,63 @@ class ProfileController extends Controller
         $user->save();
 
         $uid=$user->id;
-        $manager=Manager::where("uid",$uid)->get();
+        $captain=Captain::all()->where("uid",$uid);
 //        dd($manager);
-        $managerData=[
+
+        $captainData=[
             "study_field"=> $data->input("study_field"),
             "current_employer"=> $data->input("current_employer"),
+            "certificate"=> $data->input("certificate"),
             "previous_experience"=> $data->input("previous_experience"),
-//            "profile_photo"=>$data["profile_photo"],
-//            "personal_id"=>$data["personal_id"],
-//            "facility_receipt"=>$data["facility_receipt"],
+            "personal_id"=>$data["personal_id"],
+            "rescue_certificate"=>$data["rescue_certificate"],
+            "rescue_card"=>$data["rescue_card"],
         ];
+
         if($data->file("profile_photo")){
             $file=$data->file("profile_photo");
             $photoname= $file->getClientOriginalName();
 
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["profile_photo"]=$photoname;
+            $captainData["profile_photo"]=$photoname;
         }
 
         if($data->file("personal_id")){
             $file=$data->file("personal_id");
             $photoname= $file->getClientOriginalName();
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["personal_id"]=$photoname;
+            $captainData["personal_id"]=$photoname;
         }
 
-        if($data->file("facility_receipt")){
-            $file=$data->file("facility_receipt");
+        if($data->file("rescue_certificate")){
+            $file=$data->file("rescue_certificate");
             $photoname= $file->getClientOriginalName();
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["facility_receipt"]=$photoname;
+            $captainData["rescue_certificate"]=$photoname;
+        }
+        if($data->file("rescue_card")){
+            $file=$data->file("rescue_card");
+            $photoname= $file->getClientOriginalName();
+            $file->move(public_path("images/uploads/"),$photoname);
+            $captainData["rescue_card"]=$photoname;
         }
 
 
-        $manager[0]->update($managerData);
-        $response= $manager[0]->save();
+        $captain[0]->update($captainData);
+        $response= $captain[0]->save();
 
         return $response;
     }
 
+    public function showForm(User $user){
+        $captain=$user->captains()->where("uid",$user->id)->get()[0];
 
-    public function updateManager(Request $request,User $user) {
-
-        $this->validator($request->all())->validate();
-        $response= $this->update($request,$user);
-
-        return $response? back()->with("message","Profile Updated Successfully"):back()->with("error","An Error Occurred");
+        $context=[
+            "user"=>$user,
+            "captain"=>$captain,
+        ];
+//        dd($context);
+        return view("manager.captain.update",$context);
     }
-
 
 }
