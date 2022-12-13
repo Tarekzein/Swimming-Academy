@@ -1,4 +1,4 @@
-@extends("layouts.dashboard")
+@extends("layouts.manager")
 
 @section("content")
     <div class="container">
@@ -26,7 +26,7 @@
                 @php
                     $user=\App\Models\User::find($captain->uid);
                 @endphp
-                <tr>
+                <tr class="captain-{{$user->id}}">
                     <th scope="row"><img src="{{url("images/uploads/$captain->profile_photo")}}" alt="" width="100px">
                     </th>
                     <td>{{$user->name}}</td>
@@ -42,6 +42,9 @@
                                 <a href="{{route("manager.updateCaptain",$user->id)}}" class="btn btn-primary btn-sm">Edite</a>
                             </li>
                             <li class="list-inline-item">
+                                <button id="upgrade-captain" data-userid="{{$user->id}}"  class="btn btn-success btn-sm upgradeCaptain">Upgrade</button>
+                            </li>
+                            <li class="list-inline-item">
                                 <a href="{{route("manager.deleteCaptain",$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         </ul>
@@ -52,5 +55,6 @@
         </table>
 
     </div>
+
 
 @endsection

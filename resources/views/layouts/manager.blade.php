@@ -10,6 +10,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="{{url("css/dashboard.css")}}" rel="stylesheet">
+    <link href="{{url("css/all.css")}}" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -19,32 +20,11 @@
 <main class="py-4">
     @yield("content")
 </main>
+
 <script src="{{url("js/jquery-3.6.0.min.js")}}" ></script>
-<script src="{{url("js/admin.add.js")}}" ></script>
-<script>
-    // search bar
-    const input = document.getElementById("search-input");
-    const searchBtn = document.getElementById("search-btn");
+<script src="{{url("js/searchFunc.js")}}" ></script>
+<script src="{{url("js/upgradeCaptain.js")}}" ></script>
 
-    const expand = () => {
-        searchBtn.classList.toggle("close");
-        input.classList.toggle("square");
-    };
-
-    searchBtn.addEventListener("click", expand);
-</script>
-<script>
-
-    $(document).ready(function(){
-        $("#search").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $(".table-body tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-
-</script>
 </body>
 </html>
 

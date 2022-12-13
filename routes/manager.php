@@ -46,6 +46,12 @@ Route::group(["prefix"=>"profile"],function (){
 
     });
 
+    Route::group(["prefix"=>"ajax"],function (){
+
+        Route::get("/captain/make-manager/{user}",[\App\Http\Controllers\Manager\Captain\UpgradeController::class,"upgrade"]);
+
+    });
+
 });
 
 
