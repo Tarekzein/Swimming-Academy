@@ -9,7 +9,7 @@ $(document).ready(function (){
             url:`ajax/captain/make-manager/${userID}`,
             type:"GET",
             success:function (response){
-
+                console.log(response);
                 $(`.captain-${userID}`).fadeOut();
 
             },

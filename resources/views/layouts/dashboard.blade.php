@@ -21,30 +21,7 @@
     @yield("content")
 </main>
 <script src="{{url("js/jquery-3.6.0.min.js")}}" ></script>
-<script src="{{url("js/admin.add.js")}}" ></script>
-<script>
-    // search bar
-    const input = document.getElementById("search-input");
-    const searchBtn = document.getElementById("search-btn");
-
-    const expand = () => {
-        searchBtn.classList.toggle("close");
-        input.classList.toggle("square");
-    };
-
-    searchBtn.addEventListener("click", expand);
-</script>
-<script>
-
-    $(document).ready(function(){
-        $("#search").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $(".table-body tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-
-</script>
+<script src="{{url("js/admin.js")}}" ></script>
+<script src="{{url("js/searchFunc.js")}}" ></script>
 </body>
 </html>

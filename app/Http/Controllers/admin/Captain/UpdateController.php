@@ -3,20 +3,15 @@
 namespace App\Http\Controllers\admin\Captain;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Captain\CreatesCaptain;
-use App\Http\Traits\Manager\CreatesManager;
-use App\Http\Traits\Manager\UpdatesManagers;
+use App\Http\Traits\Captain\UpdatesCaptains;
 use App\Models\captain\Captain;
-use App\Models\manager\Manager;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller
 {
-    use CreatesCaptain;
+    use UpdatesCaptains;
 
     /**
      * Get a validator for an incoming registration request.

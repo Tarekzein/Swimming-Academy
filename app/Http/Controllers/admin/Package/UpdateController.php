@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\admin\Package;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Package\UpdatesPromoCode;
+use App\Http\Traits\Package\UpdatesPackage;
 use App\Models\PackageType;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller
 {
-    use UpdatesPromoCode;
+    use UpdatesPackage;
 
     /**
      * Get a validator for an incoming registration request.

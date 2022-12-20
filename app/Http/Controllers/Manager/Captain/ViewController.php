@@ -10,7 +10,9 @@ class ViewController extends Controller
 {
     public function all() {
 
-        $captain=Captain::all()->where("profile_status","approved");
+        $captain=Captain::all()
+            ->where("profile_status","approved")
+            ->where("upgraded","false");
 
         return view("manager.captain.all",["captains"=>$captain]);
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin\Package;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Package\CreatesPromoCode;
+use App\Http\Traits\Package\CreatesPackage;
 use App\Models\Branch;
 use App\Models\PackageType;
 use App\Models\SubscriptionType;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller
 {
-    use CreatesPromoCode;
+    use CreatesPackage;
 
     /**
      * Get a validator for an incoming registration request.

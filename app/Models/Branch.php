@@ -22,4 +22,9 @@ class Branch extends Model
         return $this->hasMany(SubscriptionType::class,"branchID");
     }
 
+
+    public function waterCards(){
+        return $this->hasOne(WaterCard::class,"branchID");
+    }
+
 }

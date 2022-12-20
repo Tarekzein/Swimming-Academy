@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\admin\Subscription;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Subscription\UpdatesPackage;
+use App\Http\Traits\Subscription\UpdatesSubscription;
 use App\Models\Branch;
 use App\Models\SubscriptionType;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller
 {
-    use UpdatesPackage;
+    use UpdatesSubscription;
 
     /**
      * Get a validator for an incoming registration request.

@@ -18,6 +18,7 @@ class Manager extends Model
         "profile_photo",
         "personal_id",
         "facility_receipt",
+        "profile_status",
         "created_at",
         "updated_at",
     ];

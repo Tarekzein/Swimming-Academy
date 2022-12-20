@@ -10,9 +10,9 @@ class ViewController extends Controller
 {
     public function all() {
 
-        $captain=Captain::all();
-
-        return view("admin.captain.all",["captains"=>$captain]);
+        $captain=Captain::all()->where("profile_status","approved");
+        $pendingCaptains=Captain::all()->where("profile_status","pending");
+        return view("admin.captain.all",["captains"=>$captain,"pendingCaptains"=>$pendingCaptains]);
 
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin\Branch;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Branch\UpdatesSubscription;
+use App\Http\Traits\Branch\UpdatesBranch;
 use App\Models\Branch;
 use App\Models\captain\Captain;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller
 {
-    use UpdatesSubscription;
+    use UpdatesBranch;
 
     /**
      * Get a validator for an incoming registration request.

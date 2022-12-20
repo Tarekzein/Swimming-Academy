@@ -94,3 +94,11 @@ Route::group(["prefix"=>"promocodes"],function () {
 
 
 });
+
+
+Route::group(["prefix"=>"ajax"],function (){
+
+    Route::get("acceptManager",[\App\Http\Controllers\admin\AjaxController::class,"acceptManager"])->name("ajax.acceptManager");
+    Route::get("rejectManager",[\App\Http\Controllers\admin\AjaxController::class,"rejectManager"])->name("ajax.rejectManager");
+
+});

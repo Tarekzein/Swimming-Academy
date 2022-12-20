@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Manager\UpdatesManagers;
+use App\Models\Branch;
 use App\Models\manager\Manager;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,11 +16,14 @@ class ProfileController extends Controller
 
 
     public function index(Request $request){
+        $manager=Manager::where("uid",$request->user()->id)->get()[0];
 
-        return view("manager.profile",["user"=>$request->user()]);
+        $branch=Branch::find($manager->branchID);
+        return view("manager.profile",["user"=>$request->user(),"branch"=>$branch]);
     }
 
-    public function showUpdateForm(User $user){
+    public function showUpdateForm(){
+        $user=auth()->user();
         $manager=$user->managers()->where("uid",$user->id)->get()[0];
 
         $context=[
@@ -46,7 +50,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    protected function update(Request $data,User $user)
+    protected function update(Request $data,$user)
     {
 //        dd($data);
         $user->update([
@@ -100,8 +104,8 @@ class ProfileController extends Controller
     }
 
 
-    public function updateManager(Request $request,User $user) {
-
+    public function updateManager(Request $request) {
+        $user=auth()->user();
         $this->validator($request->all())->validate();
         $response= $this->update($request,$user);
 

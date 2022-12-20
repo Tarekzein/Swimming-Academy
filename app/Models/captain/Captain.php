@@ -20,6 +20,7 @@ class Captain extends Model
         "personal_id",
         "rescue_certificate",
         "rescue_card",
+        "upgraded",
         "created_at",
         "updated_at",
     ];
