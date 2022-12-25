@@ -55,6 +55,20 @@ Route::group(["prefix"=>"profile"],function (){
 
     });
 
+    //    Incomes Routes
+    Route::group(["prefix"=>"incomes"],function(){
+
+        Route::get("/",[\App\Http\Controllers\Manager\Income\ViewController::class,"all"])->name("manager.incomes");
+        Route::get("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"showForm"])->name("manager.incomeAdd");
+        Route::post("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"add"])->name("manager.incomeAdd");
+        Route::get("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"showForm"])->name("manager.incomeUpdate");
+        Route::post("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"updateIncome"])->name("manager.incomeUpdate");
+        Route::get("/delete/{income}",[\App\Http\Controllers\Manager\Income\DeleteController::class,"delete"])->name("manager.incomeDelete");
+
+
+
+    });
+
     Route::get("branch/{branch}",[\App\Http\Controllers\Manager\Branch\ViewController::class,"single"])->name("manager.branch");
 
 

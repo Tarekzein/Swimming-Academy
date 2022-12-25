@@ -46,6 +46,17 @@
             </h4>
 
         </div>
+        <div class="my-5 d-flex justify-content-evenly">
+
+            <h4>
+                <a href="{{route("manager.incomes")}}">Show All Incomes</a>
+            </h4>
+
+            <h4>
+                <a href="{{route("manager.incomeAdd")}}">Add Income</a>
+            </h4>
+
+        </div>
 
     </div>
 

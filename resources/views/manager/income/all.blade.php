@@ -42,10 +42,10 @@
                     <td>
                         <ul class="list-inline d-flex">
                             <li class="list-inline-item">
-                                <a href="{{route("admin.incomeUpdate",$p->id)}}" class="btn btn-primary btn-sm">Edite</a>
+                                <a href="{{route("manager.incomeUpdate",$p->id)}}" class="btn btn-primary btn-sm">Edite</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{route("admin.incomeDelete",$p->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{route("manager.incomeDelete",$p->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         </ul>
                     </td>

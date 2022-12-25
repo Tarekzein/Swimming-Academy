@@ -108,6 +108,8 @@ Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"index"])
 
 
     });
+
+
     Route::group(["prefix"=>"outcomes"],function(){
 
         Route::get("/",[\App\Http\Controllers\admin\Outcome\ViewController::class,"all"])->name("admin.outcomes");
