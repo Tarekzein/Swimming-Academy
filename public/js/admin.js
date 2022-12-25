@@ -124,9 +124,54 @@ $(document).ready(function (){
 
         let id= $(this).attr("data-userID");
         let options=$(`#options-${id}`);
-        let acceptOptions=$(`#accept-${id}`);
+        let acceptOptions=$(`#approveOptions-${id}`);
+        $.ajax({
+           url:"ajax/acceptCaptain",
+           Type:"GET",
+           data:{
+               "uid":id,
+           },
+            success:function (response){
+                console.log(response);
+                options.removeClass("d-none");
+                options.addClass("d-flex");
 
+                acceptOptions.removeClass("d-flex");
+                acceptOptions.addClass("d-none");
+                let row= $(`#captain-${id}`);
+                row.css("display","none");
+                $("#captainsTable").append(row.fadeToggle());
+            },
+            error:function (x,y,z){
+                console.log(x,y,z);
+
+            }
+        });
 
     });
 
+    $(".rejectCaptain").click(function (){
+
+        let id= $(this).attr("data-userID");
+        // let options=$(`#options-${id}`);
+        // let acceptOptions=$(`#approveOptions-${id}`);
+        $.ajax({
+            url:"ajax/rejectCaptain",
+            Type:"GET",
+            data:{
+                "uid":id,
+            },
+            success:function (response){
+                console.log(response);
+
+                let row= $(`#captain-${id}`);
+                row.fadeToggle();
+            },
+            error:function (x,y,z){
+                console.log(x,y,z);
+
+            }
+        });
+
+    });
 });

@@ -16,6 +16,8 @@ class Intern extends Model
         "academyID",
         "branch",
         "group_type",
+        "subType",
+        "upgraded",
         "created_at",
         "updated_at",
     ];

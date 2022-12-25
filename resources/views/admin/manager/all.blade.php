@@ -27,7 +27,7 @@
                 @endphp
                 @if($manager->profile_status=="approved")
                     <tr>
-                        <th scope="row"><img src="{{url("images/uploads/$manager->profile_photo")}}" alt="" width="100px"></th>
+                        <th scope="row"><img src="{{url("images/uploads/$manager->profile_photo")}}" alt="" width="50px"></th>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->address}}</td>
@@ -48,7 +48,7 @@
                     </tr>
                 @elseif($manager->profile_status=="pending")
                     <tr style="background-color: #f1f1f1" id="manager-{{$user->id}}">
-                        <th scope="row"><img src="{{url("images/uploads/$manager->profile_photo")}}" alt="" width="100px"></th>
+                        <th scope="row"><img src="{{url("images/uploads/$manager->profile_photo")}}" alt="" width="50px"></th>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->address}}</td>

@@ -27,7 +27,7 @@
                     $user=\App\Models\User::find($captain->uid);
                 @endphp
                 <tr>
-                    <th scope="row"><img src="{{url("images/uploads/$captain->profile_photo")}}" alt="" width="100px">
+                    <th scope="row"><img src="{{url("images/uploads/$captain->profile_photo")}}" alt="" width="50px">
                     </th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
@@ -73,7 +73,7 @@
                     $user=\App\Models\User::find($captain->uid);
                 @endphp
                 <tr id="captain-{{$user->id}}">
-                    <th scope="row"><img src="{{url("images/uploads/$captain->profile_photo")}}" alt="" width="100px">
+                    <th scope="row"><img src="{{url("images/uploads/$captain->profile_photo")}}" alt="" width="50px">
                     </th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
