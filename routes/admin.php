@@ -135,8 +135,9 @@ Route::group(["prefix"=>"dashboard"],function (){
 
     });
 
-    Route::group(['prefix'=>"notifications"],function (){
-        Route::get("/",[])->name("admin.notifications");
+    Route::group(['prefix'=>"announcements"],function (){
+        Route::get("/add",[\App\Http\Controllers\admin\Announcement\CreateController::class,"form"])->name("admin.announcement");
+        Route::post("/add",[\App\Http\Controllers\admin\Announcement\CreateController::class,"createsAnnouncement"])->name("admin.announcement");
     });
 
 });

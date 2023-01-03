@@ -4,12 +4,10 @@ namespace App\Models;
 
 use App\Interfaces\Contracts\Observer;
 use App\Interfaces\Contracts\Subject;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Announcement extends Model implements Subject
+class Announcement implements Subject
 {
-    use HasFactory;
+
     private $message;
     private $observers = [];
 
@@ -30,13 +28,13 @@ class Announcement extends Model implements Subject
     public function notify(): void
     {
         foreach ($this->observers as $observer) {
-            $observer->update($this->message);
+            $observer->announce($this->message);
         }
     }
 
-    public function setMessage(string $message): void
+    public function setMessage(array $data): void
     {
-        $this->message = $message;
+        $this->message = $data;
         $this->notify();
     }
 }

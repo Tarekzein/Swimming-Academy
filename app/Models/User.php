@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Interfaces\Contracts\Observer;
 use App\Models\captain\Captain;
 use App\Models\intern\Intern;
 use App\Models\manager\Manager;
@@ -11,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Observer
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -48,6 +49,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+
     public function managers(){
         return $this->hasOne(Manager::class,"uid");
     }
@@ -61,4 +64,16 @@ class User extends Authenticatable
     public function admins(){
         return $this->hasOne(Intern::class,"uid");
     }
+
+    public function announcements()
+    {
+        return $this->hasMany(AnnouncementHistory::class,"uid");
+    }
+
+    public function announce(array $data): void
+    {
+        $data["uid"]=$this->id;
+        AnnouncementHistory::create($data);
+    }
+
 }

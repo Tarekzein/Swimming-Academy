@@ -6,5 +6,5 @@ namespace App\Interfaces\Contracts;
 
 interface Observer
 {
-    public function update(): void;
+    public function announce(array $data): void;
 }

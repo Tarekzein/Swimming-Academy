@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\manager\Manager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,10 @@ class Branch extends Model
 
     public function waterCards(){
         return $this->hasOne(WaterCard::class,"branchID");
+    }
+
+    public function managers(){
+        return $this->hasMany(Manager::class,"branchID");
     }
 
 }
