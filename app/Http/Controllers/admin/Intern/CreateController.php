@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\admin\Intern;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Intern\CreatesIntern;
-use App\Models\captain\Captain;
 use App\Models\intern\Intern;
-use App\Models\manager\Manager;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Traits\Intern\CreatesIntern;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 

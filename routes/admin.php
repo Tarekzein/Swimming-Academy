@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(["prefix"=>"dashboard"],function (){
 
-Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"index"])->name("dashboard");
+    Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"index"])->name("dashboard");
     //    Manager routes
 
     Route::group(["prefix"=>"managers"],function(){
@@ -123,18 +123,25 @@ Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"index"])
 
     });
 
+
+    Route::group(["prefix"=>"ajax"],function (){
+
+        Route::get("acceptManager",[\App\Http\Controllers\admin\AjaxController::class,"acceptManager"])->name("ajax.acceptManager");
+        Route::get("rejectManager",[\App\Http\Controllers\admin\AjaxController::class,"rejectManager"])->name("ajax.rejectManager");
+
+        Route::get("acceptCaptain",[\App\Http\Controllers\admin\AjaxController::class,"acceptCaptain"])->name("ajax.acceptCaptain");
+        Route::get("rejectCaptain",[\App\Http\Controllers\admin\AjaxController::class,"rejectCaptain"])->name("ajax.rejectCaptain");
+
+
+    });
+
+    Route::group(['prefix'=>"notifications"],function (){
+        Route::get("/",[])->name("admin.notifications");
+    });
+
 });
 
 
 
 
-Route::group(["prefix"=>"ajax"],function (){
 
-    Route::get("acceptManager",[\App\Http\Controllers\admin\AjaxController::class,"acceptManager"])->name("ajax.acceptManager");
-    Route::get("rejectManager",[\App\Http\Controllers\admin\AjaxController::class,"rejectManager"])->name("ajax.rejectManager");
-
-    Route::get("acceptCaptain",[\App\Http\Controllers\admin\AjaxController::class,"acceptCaptain"])->name("ajax.acceptCaptain");
-    Route::get("rejectCaptain",[\App\Http\Controllers\admin\AjaxController::class,"rejectCaptain"])->name("ajax.rejectCaptain");
-
-
-});

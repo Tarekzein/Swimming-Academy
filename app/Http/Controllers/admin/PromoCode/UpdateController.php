@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\admin\PromoCode;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\PromoCode\UpdatesPromoCode;
 use App\Models\admin\PromoCode;
-use App\Models\PackageType;
+use App\Traits\PromoCode\UpdatesPromoCode;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

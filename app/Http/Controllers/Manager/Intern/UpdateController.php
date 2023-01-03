@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Manager\Intern;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Intern\UpdatesIntern;
 use App\Models\Academy;
 use App\Models\intern\Intern;
 use App\Models\User;
+use App\Traits\Intern\UpdatesIntern;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

@@ -1,0 +1,102 @@
+@extends("layouts.dashboard")
+
+@section("content")
+    <div class="container">
+
+        <h1>Add Outcome Form</h1>
+
+        <form method="post" action="{{route("manager.outcomeAdd")}}">
+            @csrf
+
+            <div class="row mb-3">
+                <label for="subs" class="col-md-4 col-form-label text-md-end">{{ __('Academy') }}</label>
+                <div class="col-md-6">
+                    <select class="form-select" id="academyID"  required name="academyID"
+                            aria-label="Default select example">
+                        <option selected></option>
+                        @foreach($academies as $a)
+
+                            <option value="{{$a->id}}">{{$a->name}} </option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+
+            <input id="branchID" type="text"
+                   class="form-control @error('branchID') is-invalid @enderror" name="branchID"
+                   value="{{ $branch->id }}" hidden required autocomplete="branchID" autofocus>
+
+
+            <div class="row mb-3">
+                <label for="outcomeType" class="col-md-4 col-form-label text-md-end">{{ __('Outcome Type') }}</label>
+
+                <div class="col-md-6">
+                    <input id="outcomeType" type="text"
+                           class="form-control @error('outcomeType') is-invalid @enderror" name="outcomeType"
+                           value="{{ old('outcomeType') }}" required autocomplete="outcomeType" autofocus>
+
+                    @error('outcomeType')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="value"
+                       class="col-md-4 col-form-label text-md-end">{{ __('Value	') }}</label>
+
+                <div class="col-md-6">
+                    <input id="value" type="number"
+                           class="form-control @error('discount_percent') is-invalid @enderror" name="value"
+                           value="{{ old('value') }}" required autocomplete="value" autofocus>
+
+                    @error('value')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="value"
+                       class="col-md-4 col-form-label text-md-end">{{ __('Date') }}</label>
+
+                <div class="col-md-6">
+                    <input id="outcomeDate" type="date"
+                           class="form-control @error('outcomeDate') is-invalid @enderror" name="outcomeDate"
+                           value="{{ old('outcomeDate') }}" required autocomplete="outcomeDate" autofocus>
+
+                    @error('outcomeDate')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+
+
+            <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Add Outcome') }}
+                    </button>
+                </div>
+            </div>
+
+        </form>
+        @if(session()->has("message"))
+            <h3 class="text-success text-center">{{session("message")}}</h3>
+        @endif
+
+        @if(session()->has("error"))
+            <h3 class="text-danger text-center">{{session("error")}}</h3>
+        @endif
+
+    </div>
+
+@endsection

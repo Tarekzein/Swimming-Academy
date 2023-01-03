@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\admin\Manager;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Manager\CreatesManager;
-use App\Http\Traits\Manager\UpdatesManagers;
 use App\Models\manager\Manager;
 use App\Models\User;
+use App\Traits\Manager\UpdatesManagers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

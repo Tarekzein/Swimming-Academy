@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Manager\Watercard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\WaterCard\CreatesWaterCard;
-use App\Models\Branch;
 use App\Models\WaterCard;
-use Illuminate\Http\Request;
+use App\Traits\WaterCard\CreatesWaterCard;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller

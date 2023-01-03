@@ -7,14 +7,14 @@ $(document).ready(function (){
         // alert(val);
         $.ajax({
 
-            url:"/admin/packages/jquery-get-branch-subs",
+            url:"jquery-get-branch-subs",
             type:"GET",
             // dataType:"int",
             data:{
                 "branchID":val,
             },
             success:function (response){
-                console.log(response.length);
+                console.log(response);
                 let subs= $("#subs");
                 subs.prop("disabled",false);
                 subs.html("<option selected></option>");

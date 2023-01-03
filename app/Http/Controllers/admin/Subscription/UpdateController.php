@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\admin\Subscription;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Subscription\UpdatesSubscription;
-use App\Models\Branch;
 use App\Models\SubscriptionType;
+use App\Traits\Subscription\UpdatesSubscription;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

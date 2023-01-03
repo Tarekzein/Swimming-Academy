@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\admin\Package;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Package\UpdatesPackage;
 use App\Models\PackageType;
+use App\Traits\Package\UpdatesPackage;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

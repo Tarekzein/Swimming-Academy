@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Manager\UpdatesManagers;
 use App\Models\Branch;
 use App\Models\manager\Manager;
-use App\Models\User;
+use App\Traits\Manager\UpdatesManagers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

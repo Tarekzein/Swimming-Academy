@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\admin\Branch;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Branch\CreatesBranch;
 use App\Models\Branch;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Traits\Branch\CreatesBranch;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller

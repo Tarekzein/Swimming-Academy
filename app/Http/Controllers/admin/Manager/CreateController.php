@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\admin\Manager;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Manager\CreatesManager;
 use App\Models\manager\Manager;
 use App\Models\User;
+use App\Traits\Manager\CreatesManager;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 

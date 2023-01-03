@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Manager\Captain;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Captain\UpgradesCaptain;
 use App\Models\captain\Captain;
 use App\Models\manager\Manager;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Traits\Captain\UpgradesCaptain;
 
 class UpgradeController extends Controller
 {

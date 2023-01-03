@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\admin\Package;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Package\CreatesPackage;
-use App\Models\Branch;
 use App\Models\PackageType;
 use App\Models\SubscriptionType;
+use App\Traits\Package\CreatesPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

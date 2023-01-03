@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Manager\Income;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Income\UpdatesIncome;
 use App\Models\Academy;
 use App\Models\Branch;
 use App\Models\Income;
 use App\Models\manager\Manager;
-use App\Models\User;
+use App\Traits\Income\UpdatesIncome;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller

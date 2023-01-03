@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\admin\PromoCode;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\PromoCode\CreatesPromoCode;
 use App\Models\admin\PromoCode;
-use Illuminate\Http\Request;
+use App\Traits\PromoCode\CreatesPromoCode;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller

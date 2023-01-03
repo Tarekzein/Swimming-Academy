@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\admin\Outcome;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Income\CreatesIncome;
-use App\Http\Traits\Outcome\CreatesOutcome;
-use App\Models\admin\PromoCode;
-use App\Models\Income;
 use App\Models\Outcome;
-use Illuminate\Http\Request;
+use App\Traits\Outcome\CreatesOutcome;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\admin\Captain;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Captain\UpdatesCaptains;
 use App\Models\captain\Captain;
 use App\Models\User;
+use App\Traits\Captain\UpdatesCaptains;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

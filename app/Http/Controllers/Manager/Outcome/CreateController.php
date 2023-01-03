@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin\Outcome;
+namespace App\Http\Controllers\Manager\Outcome;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Income\CreatesIncome;
-use App\Http\Traits\Outcome\CreatesOutcome;
-use App\Models\admin\PromoCode;
-use App\Models\Income;
+use App\Models\Academy;
+use App\Models\Branch;
+use App\Models\manager\Manager;
 use App\Models\Outcome;
-use Illuminate\Http\Request;
+use App\Traits\Outcome\CreatesOutcome;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller
@@ -39,5 +38,12 @@ class CreateController extends Controller
         return $outcome;
     }
 
+    public function showForm(){
+        $manager=Manager::where("uid",auth()->user()->id)->get()->first() ;
+        $academies=Academy::all();
+        $branch=Branch::find($manager->branchID);
+
+        return view("manager.outcome.add",["academies"=>$academies,"branch"=>$branch]);
+    }
 
 }

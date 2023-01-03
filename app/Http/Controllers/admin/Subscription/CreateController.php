@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\admin\Subscription;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Subscription\CreatesSubscription;
-use App\Models\Branch;
 use App\Models\SubscriptionType;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Traits\Subscription\CreatesSubscription;
 use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller

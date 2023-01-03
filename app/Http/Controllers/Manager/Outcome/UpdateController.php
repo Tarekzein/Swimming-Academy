@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin\Outcome;
+namespace App\Http\Controllers\Manager\Outcome;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\Income\UpdatesIncome;
-use App\Http\Traits\Outcome\UpdatesOutcome;
-use App\Models\Income;
+use App\Models\Academy;
+use App\Models\Branch;
+use App\Models\manager\Manager;
 use App\Models\Outcome;
+use App\Traits\Outcome\UpdatesOutcome;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateController extends Controller
@@ -40,6 +41,22 @@ class UpdateController extends Controller
         $response= $outcome->save();
 
         return $response;
+    }
+
+    public function showForm(Outcome $outcome){
+
+        $manager=Manager::where("uid",auth()->user()->id)->get()->first() ;
+        $academies=Academy::all();
+        $branch=Branch::find($manager->branchID);
+
+        $context=[
+            "outcome"=>$outcome,
+            "academies"=>$academies,
+            "branch"=>$branch,
+        ];
+
+//        dd($context);
+        return view("manager.outcome.update",$context);
     }
 
 }

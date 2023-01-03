@@ -21,8 +21,7 @@ class AjaxController extends Controller
 
         $user=User::find($userID);
         $manager=Manager::where("uid",$userID)->get()->first();
-        $manager->profile_status="approved";
-        $manager->branchID=$branch;
+        $manager->update(["profile_status"=>"approved","branchID"=>$branch]);
         $manager->save();
 
         return response()->json($manager);
