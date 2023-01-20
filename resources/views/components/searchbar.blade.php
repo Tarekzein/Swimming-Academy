@@ -1,7 +1,6 @@
-<form class="search" method="POST">
-    @csrf
-    <input  class="search-txt" id="search" type="text" name="empName" placeholder="Type to search">
-    <button class="search-btn" type="submit" >
-        <i class="fas fa-search"></i>
-    </button>
-</form>
+<div class="ms-md-auto pe-md-3 d-flex align-items-center">
+    <div class="input-group border-white input-group-outline">
+        <label class="form-label text-white">ابحث</label>
+        <input type="text" id="search" class="form-control search-txt text-white" />
+    </div>
+</div>

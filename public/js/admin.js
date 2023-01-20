@@ -7,7 +7,7 @@ $(document).ready(function (){
         // alert(val);
         $.ajax({
 
-            url:"jquery-get-branch-subs",
+            url:"ajax/branch-subs",
             type:"GET",
             // dataType:"int",
             data:{
@@ -17,7 +17,7 @@ $(document).ready(function (){
                 console.log(response);
                 let subs= $("#subs");
                 subs.prop("disabled",false);
-                subs.html("<option selected></option>");
+                subs.html("<option selected>الخدمة</option>");
                 response.forEach(e=>{
 
                     let option= `<option value='${e.id}'>${e.name}</option>`
@@ -116,9 +116,6 @@ $(document).ready(function (){
 
     });
 
-
-
-
 //  Accept Captain
     $(".acceptCaptain").click(function (){
 
@@ -174,4 +171,61 @@ $(document).ready(function (){
         });
 
     });
+
+    $("#watercard-filter").change(function () {
+        let val = $(this).val();
+        $.ajax({
+
+            url:"dashboard/ajax/watercard-filter",
+            type:"GET",
+            // dataType:"int",
+            data:{
+                "branch":val,
+            },
+            success:function (response){
+                console.log(response);
+                let progressbar = $(".progress-bar");
+                progressbar.attr("data-cardpercent",response["watercard"])
+                $("#watercard-val").html(`${response["watercard"]} %`)
+                progressbar.animate({
+                    width: `${progressbar.attr("data-cardpercent")}%`
+                }, 2000);
+
+            },
+            error:function (e,x,y){
+                console.log(e,x,y);
+            },
+
+
+        });
+    });
+
+    $(".subnav").click(function () {
+        if($(this).children(".arrow").html()=="expand_more"){
+            $(this).children(".arrow").html("expand_less")
+
+        }
+        else{
+
+            $(this).children(".arrow").html("expand_more")
+        }
+       $(this).parent().next().children().slideToggle();
+    });
+
+    $(".form-header").click(function (){
+        if($(this).children().children(".iconchange").children().hasClass("fa-plus-circle")){
+            $(this).children().children(".iconchange").children().removeClass("fa-plus-circle")
+            $(this).children().children(".iconchange").children().addClass("fa-minus-circle")
+
+        }
+        else{
+            $(this).children().children(".iconchange").children().removeClass("fa-minus-circle")
+            $(this).children().children(".iconchange").children().addClass("fa-plus-circle")
+
+        }
+        $(this).next(".form-body").slideToggle();
+
+
+    });
+
 });

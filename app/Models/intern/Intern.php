@@ -25,4 +25,21 @@ class Intern extends Model
     public function user(){
         return $this->belongsTo(User::class,"uid");
     }
+
+    public function scopeFilter($query,array $filters){
+
+        if($filters["catid"] ?? false){
+            if(request("catid")!=0){
+                $query->where(["catid"=>request("catid"),"status"=>"approved"]);
+            }
+
+
+        }
+        else if($filters["author"] ?? false){
+            $query->where(["uid"=>request("author"),"status"=>"approved"]);
+        }
+
+
+    }
+
 }

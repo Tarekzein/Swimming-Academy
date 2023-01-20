@@ -16,7 +16,7 @@ class WaterCard extends Model
       "updated_at",
     ];
 
-    public function branches(){
+    public function branch(){
         return $this->belongsTo(Branch::class,"branchID");
     }
 }

@@ -3,103 +3,147 @@
 @section("content")
     <div class="container">
 
-    <h1>Add Manager Form</h1>
+        <div class="row pt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-dark d-flex align-items-center shadow-dark border-radius-lg pt-4 pb-3">
+                            <h3 class="text-white text-lg-end text-capitalize pe-3">اضافة ادارية</h3>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <form method="post" action="{{route("admin.managerAdd")}}">
+                            @csrf
 
-        <form method="post" action="{{route("admin.managerAdd")}}">
-            @csrf
+                            <div class="row px-5">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="name" class="form-label">{{ __('الاسم') }}</label>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-            <input id="academyID" name="academyID" value="2" hidden >
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="email" class="form-label">{{ __('البريد الالكتروني') }}</label>
 
-            <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
 
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
+                            <div class="row px-5">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="password" class="form-label ">{{ __('كلمة السر') }}</label>
 
-            <div class="row mb-3">
-                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                <div class="col-md-6">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                    @enderror
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="password-confirm" class="form-label text-md-end">{{ __('تأكيد كلمة السر') }}</label>
+
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="address" class="form-label text-md-end">{{ __('العنوان') }}</label>
+                                        <input id="address" type="text" class="form-control" name="address" required >
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="password-confirm" class="form-label text-md-end">{{ __('رقم الواتس اب') }}</label>
+
+                                        <input id="whatsapp" class="form-control whatsapp" type="text"  name="whatsapp" required >
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="birthdate" class="form-label text-md-end">{{ __('تاريخ الميلاد') }}</label>
+                                        <input id="birthdate"  type="date" class="form-control" name="birthdate" required >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5 mb-0">
+                                <div class="col offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('اضافة ادارية') }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
                 </div>
+
             </div>
+        </div>
 
-            <div class="row mb-3">
-                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+        <div class="position-fixed bottom-1 start-1 z-index-3">
 
-                <div class="col-md-6">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            @if(session()->has("message"))
+                <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
 
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
+                    <div class="toast-header border-0">
+                        <i class="material-icons text-success ms-2">check</i>
+                        <span class="ms-auto text-success  font-weight-bold">Success</span>
+                        <small class="text-body "> من {{now()->second}} ث </small>
+                        <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                    </div>
+
+                    <hr class="horizontal dark m-0">
+                    <div class="toast-body font-weight-bold">
+                        {{session("message")}}
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="row mb-3">
-                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+            @if(session()->has("error"))
+                <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
 
-                <div class="col-md-6">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                    <div class="toast-header border-0">
+                        <i class="material-icons text-danger ms-2">close</i>
+                        <span class="ms-auto text-danger  font-weight-bold">Success</span>
+                        <small class="text-body "> من {{now()->second}} ث </small>
+                        <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                    </div>
+
+                    <hr class="horizontal dark m-0">
+                    <div class="toast-body font-weight-bold">
+                        {{session("error")}}
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="row mb-3">
-                <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
-
-                <div class="col-md-6">
-                    <input id="address" type="text" class="form-control" name="address" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="whatsapp" class="col-md-4 col-form-label text-md-end">{{ __('Whatsapp Number') }}</label>
-
-                <div class="col-md-6">
-                    <input id="whatsapp" class="form-control" type="text" class="whatsapp" name="whatsapp" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('BirthDate') }}</label>
-
-                <div class="col-md-6">
-                    <input id="birthdate" type="date" class="form-control" name="birthdate" required >
-                </div>
-            </div>
-
-            <div class="row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Add Manager') }}
-                    </button>
-                </div>
-            </div>
-
-        </form>
-        @if(session()->has("message"))
-            <h3 class="text-success">{{session("message")}}</h3>
-        @endif
-
-        @if(session()->has("error"))
-            <h3 class="text-danger">{{session("error")}}</h3>
-        @endif
+        </div>
 
     </div>
 

@@ -1,53 +1,11 @@
-/* search bar  */
-
-.search{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background:black ;
-    height: 40px;
-    border-radius: 40px;
-    padding-left: 15px;
-}
-
-.search-txt{
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
-    color:wheat ;
-    font-size: 16px;
-    transition: ease-in 0.4s;
-    line-height: 40px;
-    width: 110px;
-}
-
-.search:hover .search-txt{
-    width: 220px;
-    /*padding: 0 10px;*/
-    color: wheat;
-
-}
-.search:hover .search-btn{
-    background: white ;
-}
-
-.search-btn{
-    color: red;
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background:#ABB2B9 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cardLink{
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 
-
-.fas fa-search{
-    font-weight: 200;
-    font-size: 40px;
+.cardLink:hover {
+    box-shadow: 0 0 10px rgba(52, 52, 52, 0.29) !important;
 }
+
 

@@ -15,10 +15,18 @@ class ProfileController extends Controller
 
 
     public function index(Request $request){
-        $manager=Manager::where("uid",$request->user()->id)->get()[0];
+        $manager=Manager::where("uid",$request->user()->id)->get()->first();
 
         $branch=Branch::find($manager->branchID);
-        return view("manager.profile",["user"=>$request->user(),"branch"=>$branch]);
+        $user=auth()->user();
+        $announcements=$user->announcements()->get();
+        $context=[
+            "user"=>$request->user(),
+            "branch"=>$branch,
+            "announcements"=>$announcements
+        ];
+
+        return view("manager.profile",$context);
     }
 
     public function showUpdateForm(){

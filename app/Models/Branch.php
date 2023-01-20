@@ -24,7 +24,7 @@ class Branch extends Model
     }
 
 
-    public function waterCards(){
+    public function waterCard(){
         return $this->hasOne(WaterCard::class,"branchID");
     }
 
