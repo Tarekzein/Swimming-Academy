@@ -1,163 +1,245 @@
-@extends("layouts.dashboard")
+@extends("layouts.manager")
 
 @section("content")
     <div class="container">
 
-    <h1>Update Manager Form</h1>
+        <div class="row pt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-dark d-flex align-items-center shadow-dark border-radius-lg pt-4 pb-3">
+                            <h3 class="text-white text-lg-end text-capitalize pe-3">تعديل الكابتن</h3>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <form method="post" enctype="multipart/form-data" action="{{route("manager.updateCaptain",$user->id)}}">
+                            @csrf
 
-        <form method="post" action="{{route("manager.updateCaptain",$user->id)}}" enctype="multipart/form-data">
-            @csrf
+                            <div class="row px-5">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="name" class="form-label">{{ __('الاسم') }}</label>
+                                        <input id="name" type="text" value="{{$user->name}}" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
 
-            <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="email" class="form-label">{{ __('البريد الالكتروني') }}</label>
 
-                <div class="col-md-6">
-                    <input id="name" type="text" value="{{$user->name}}" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email">
 
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row px-5">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="address" class="form-label text-md-end">{{ __('العنوان') }}</label>
+                                        <input id="address" type="text" value="{{$user->address}}" class="form-control" name="address" required >
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="password-confirm" class="form-label text-md-end">{{ __('رقم الواتس اب') }}</label>
+
+                                        <input id="whatsapp" class="form-control" value="{{$user->whatsapp}}" type="text"  name="whatsapp" required >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="birthdate" class="form-label text-md-end">{{ __('تاريخ الميلاد') }}</label>
+                                        <input id="birthdate" type="date" value="{{$user->birthdate}}" class="form-control" name="birthdate" required >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="studyfield" class="form-label text-md-end">{{ __('Study field') }}</label>
+
+                                        <input id="studyfield" type="text" value="{{$captain->study_field}}" class="form-control" name="study_field" required >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="current_employer" class="form-label text-md-end">{{ __("Current Employer") }}</label>
+
+                                        <input id="current_employer" type="text" value="{{$captain->current_employer}}" class="form-control" name="current_employer" required >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="previous_experience" class="form-label text-md-end">{{ __("Previous Experience") }}</label>
+
+                                        <input id="previous_experience" type="text" value="{{$captain->previous_experience}}" class="form-control" name="previous_experience" required >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+
+                                <div class="col-lg-8 col-md-4">
+                                    <div class="d-flex ">
+
+                                        <label for="profile_photo" class=" col-md-4 my-auto col-form-label text-md-end">{{ __("profile photo") }}</label>
+
+
+
+                                        <div class="input-group input-group-outline my-3">
+
+                                            <input id="profile_photo" type="file" class="form-control" name="profile_photo"  >
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 align-items-center col-md-2">
+                                    <span class="my-auto">Previous: </span>
+                                    <img class="avatar-lg" src="{{url("images/uploads/".$captain->profile_photo)}}" alt="">
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-lg-8 col-md-4">
+                                    <div class="d-flex ">
+
+                                        <label for="personal_id" class="col-md-4 my-auto col-form-label text-md-end">{{ __("personal id") }}</label>
+
+
+
+                                        <div class="input-group input-group-outline my-3">
+
+                                            <input id="personal_id" type="file" class="form-control" name="personal_id"  >
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 align-items-center col-md-2">
+                                    <span>Previous: </span>
+                                    <img class="avatar-lg" src="{{url("images/uploads/".$captain->personal_id)}}" alt="no photo">
+                                </div>
+
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-lg-8 col-md-4">
+                                    <div class="d-flex ">
+
+                                        <label for="rescue_certificate" class="col-md-4 my-auto col-form-label text-md-end">{{ __("Rescue Certificate") }}</label>
+
+
+
+                                        <div class="input-group input-group-outline my-3">
+
+                                            <input id="rescue_certificate" type="file" class="form-control" name="rescue_certificate"  >
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 align-items-center col-md-2">
+                                    <span>Previous: </span>
+                                    <img class="avatar-lg" src="{{url("images/uploads/".$captain->rescue_certificate)}}" alt="no photo">
+                                </div>
+
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-lg-8 col-md-4">
+                                    <div class="d-flex ">
+
+                                        <label for="rescue_card" class="col-md-4 my-auto col-form-label text-md-end">{{ __("Rescue Card") }}</label>
+
+
+
+                                        <div class="input-group input-group-outline my-3">
+
+                                            <input id="rescue_card" type="file" class="form-control" name="rescue_card"  >
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 align-items-center col-md-2">
+                                    <span>Previous: </span>
+                                    <img class="avatar-lg" src="{{url("images/uploads/".$captain->rescue_card)}}" alt="no photo">
+                                </div>
+
+
+                            </div>
+
+                            <div class="row px-5 mb-0">
+                                <div class="col offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('تعديل ') }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
                 </div>
+
             </div>
+        </div>
 
-            <div class="row mb-3">
-                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+        <div class="position-fixed bottom-1 start-1 z-index-3">
 
-                <div class="col-md-6">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email">
+            @if(session()->has("message"))
+                <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
 
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
+                    <div class="toast-header border-0">
+                        <i class="material-icons text-success ms-2">check</i>
+                        <span class="ms-auto text-success  font-weight-bold">Success</span>
+                        <small class="text-body "> من {{now()->second}} ث </small>
+                        <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                    </div>
+
+                    <hr class="horizontal dark m-0">
+                    <div class="toast-body font-weight-bold">
+                        {{session("message")}}
+                    </div>
                 </div>
-            </div>
+            @endif
 
+            @if(session()->has("error"))
+                <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
 
+                    <div class="toast-header border-0">
+                        <i class="material-icons text-danger ms-2">close</i>
+                        <span class="ms-auto text-danger  font-weight-bold">Success</span>
+                        <small class="text-body "> من {{now()->second}} ث </small>
+                        <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                    </div>
 
-            <div class="row mb-3">
-                <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
-
-                <div class="col-md-6">
-                    <input id="address" type="text" value="{{$user->address}}" class="form-control" name="address" required >
+                    <hr class="horizontal dark m-0">
+                    <div class="toast-body font-weight-bold">
+                        {{session("error")}}
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="row mb-3">
-                <label for="whatsapp" class="col-md-4 col-form-label text-md-end">{{ __('Whatsapp Number') }}</label>
-
-                <div class="col-md-6">
-                    <input id="whatsapp" class="form-control" value="{{$user->whatsapp}}" type="text" class="whatsapp" name="whatsapp" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('BirthDate') }}</label>
-
-                <div class="col-md-6">
-                    <input id="birthdate" type="date" value="{{$user->birthdate}}" class="form-control" name="birthdate" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="studyfield" class="col-md-4 col-form-label text-md-end">{{ __('Study field') }}</label>
-
-                <div class="col-md-6">
-                    <input id="studyfield" type="text" value="{{$captain->study_field}}" class="form-control" name="study_field" required >
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="current_employer" class="col-md-4 col-form-label text-md-end">{{ __("Current Employer") }}</label>
-
-                <div class="col-md-6">
-                    <input id="current_employer" type="text" value="{{$captain->current_employer}}" class="form-control" name="current_employer" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="certificate" class="col-md-4 col-form-label text-md-end">{{ __("Certificate") }}</label>
-
-                <div class="col-md-6">
-                    <input id="certificate" type="text" value="{{$captain->certificate}}" class="form-control" name="certificate" required >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="previous_experience" class="col-md-4 col-form-label text-md-end">{{ __("Previous Experience") }}</label>
-
-                <div class="col-md-6">
-                    <input id="previous_experience" type="text" value="{{$captain->previous_experience}}" class="form-control" name="previous_experience" required >
-                </div>
-            </div>
-
-
-            <div class="row mb-3">
-                <label for="profile_photo" class="col-md-4 my-auto col-form-label text-md-end">{{ __("profile photo") }}</label>
-
-                <div class="col-md-3 my-auto">
-                    <input id="profile_photo" type="file" class="form-control" name="profile_photo"  >
-                </div>
-                <div class="col-md-3">
-                    <span>Previous: </span>
-                    <img width="150px" src="{{url("images/uploads/".$captain->profile_photo)}}" alt="">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="personal_id" class="col-md-4 my-auto col-form-label text-md-end">{{ __("personal id") }}</label>
-
-                <div class="col-md-3 my-auto">
-                    <input id="personal_id" type="file" class="form-control" name="personal_id"  >
-                </div>
-                <div class="col-md-3">
-                    <span>Previous: </span>
-                    <img width="150px" src="{{url("images/uploads/".$captain->personal_id)}}" alt="">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="facility_receipt" class="col-md-4 my-auto col-form-label text-md-end">{{ __("Rescue Certificate") }}</label>
-
-                <div class="col-md-3 my-auto">
-                    <input id="facility_receipt" type="file" class="form-control" name="facility_receipt"  >
-                </div>
-                <div class="col-md-3">
-                    <span>Previous: </span>
-                    <img width="150px" src="{{url("images/uploads/".$captain->rescue_certificate)}}" alt="">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="facility_receipt" class="col-md-4 my-auto col-form-label text-md-end">{{ __("Rescue Card") }}</label>
-
-                <div class="col-md-3 my-auto">
-                    <input id="facility_receipt" type="file" class="form-control" name="facility_receipt"  >
-                </div>
-                <div class="col-md-3">
-                    <span>Previous: </span>
-                    <img width="150px" src="{{url("images/uploads/".$captain->rescue_card)}}" alt="">
-                </div>
-            </div>
-
-            <div class="row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Update Captain') }}
-                    </button>
-                </div>
-            </div>
-
-        </form>
-        @if(session()->has("message"))
-            <h3 class="text-success">{{session("message")}}</h3>
-        @endif
-
-        @if(session()->has("error"))
-            <h3 class="text-danger">{{session("error")}}</h3>
-        @endif
+        </div>
 
     </div>
 

@@ -26,10 +26,46 @@
     />
     <link rel="stylesheet" href="{{url("css/main.css")}}" />
 </head>
-<body dir="rtl" style="background-color: #e1dcdc">
+<body dir="rtl" >
 
-<main >
     @yield("content")
+    <div class="position-fixed bottom-1 start-1 z-index-3">
+
+        @if(session()->has("message"))
+            <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
+
+                <div class="toast-header border-0">
+                    <i class="material-icons text-success ms-2">check</i>
+                    <span class="ms-auto text-success  font-weight-bold">Success</span>
+                    <small class="text-body "> من {{now()->second}} ث </small>
+                    <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                </div>
+
+                <hr class="horizontal dark m-0">
+                <div class="toast-body font-weight-bold">
+                    {{session("message")}}
+                </div>
+            </div>
+        @endif
+
+        @if(session()->has("error"))
+            <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
+
+                <div class="toast-header border-0">
+                    <i class="material-icons text-danger ms-2">close</i>
+                    <span class="ms-auto text-danger  font-weight-bold">Success</span>
+                    <small class="text-body "> من {{now()->second}} ث </small>
+                    <i class="fas fa-times  text-md me-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                </div>
+
+                <hr class="horizontal dark m-0">
+                <div class="toast-body font-weight-bold">
+                    {{session("error")}}
+                </div>
+            </div>
+        @endif
+    </div>
+
 </main>
 
 <script

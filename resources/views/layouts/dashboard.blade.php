@@ -52,6 +52,8 @@
         }
     </style>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 
@@ -373,14 +375,35 @@
 </script>
 
 <script>
+
     $(".progress-bar").animate({
         width: `${$(".progress-bar").attr("data-cardpercent")}%`
     }, 2000);
+
 </script>
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{url("js/material-dashboard.min.js?v=3.0.4")}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-knob/1.2.13/jquery.knob.min.js"></script>
 
+    <script>
+
+    $('#dates').datepicker({
+        multidate: true,
+        format: "yyyy-mm-dd"
+    });
+    $('#start-time').timepicker({
+        timeFormat: 'hh:mm TT'
+    });
+    $('#end-time').timepicker({
+        timeFormat: 'hh:mm TT'
+    });
+
+    </script>
 </body>
 </html>

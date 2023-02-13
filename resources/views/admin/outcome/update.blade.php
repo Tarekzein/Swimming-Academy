@@ -3,7 +3,7 @@
 @section("content")
     <div class="container">
 
-        <h1>Update Promo-Code Form</h1>
+        <h1>Update Outcome Form</h1>
 
         <form method="post" action="{{route("admin.outcomeUpdate",$outcome->id)}}" enctype="multipart/form-data">
             @csrf

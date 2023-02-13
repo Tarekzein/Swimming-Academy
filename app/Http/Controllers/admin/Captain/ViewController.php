@@ -13,8 +13,7 @@ class ViewController extends Controller
 
         $captain=Captain::all()->where("profile_status","approved");
         $pendingCaptains=Captain::all()->where("profile_status","pending");
-        $branches=Branch::all();
-        return view("admin.captain.all",["captains"=>$captain,"branches"=>$branches,"pendingCaptains"=>$pendingCaptains]);
+        return view("admin.captain.all",["captains"=>$captain,"pendingCaptains"=>$pendingCaptains]);
 
     }
 

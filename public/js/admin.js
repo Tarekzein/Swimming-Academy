@@ -200,6 +200,78 @@ $(document).ready(function (){
         });
     });
 
+    $("#interns-filter").change(function () {
+        let val = $(this).val();
+        $.ajax({
+
+            url:"ajax/interns-filter",
+            type:"GET",
+            // dataType:"int",
+            data:{
+                "branch":val,
+            },
+            success:function (response){
+                $("#internsCount").html(response["interns"]);
+
+            },
+            error:function (e,x,y){
+                console.log(e,x,y);
+            },
+
+
+        });
+    });
+
+    $("#managers-filter").change(function () {
+        let val = $(this).val();
+        $.ajax({
+
+            url:"ajax/managers-filter",
+            type:"GET",
+            // dataType:"int",
+            data:{
+                "branch":val,
+            },
+            success:function (response){
+                $("#pendingManagersVal").html(response["pendingManagers"]);
+                $("#approvedManagersVal").html(response["approvedManagers"]);
+
+            },
+            error:function (e,x,y){
+                console.log(e,x,y);
+            },
+
+
+        });
+    });
+
+    $("#billing-filter").change(function () {
+        let val = $(this).val();
+        $.ajax({
+
+            url:"ajax/billing-filter",
+            type:"GET",
+            // dataType:"int",
+            data:{
+                "branch":val,
+            },
+            success:function (response){
+                console.log(response);
+                $("#wavIncome").html(response["incomeWaves"]);
+                $("#wavOutcome").html(response["outcomeWaves"]);
+
+                $("#weIncome").html(response["incomeWecoach"]);
+                $("#weOutcome").html(response["outcomeWecoach"]);
+
+            },
+            error:function (e,x,y){
+                console.log(e,x,y);
+            },
+
+
+        });
+    });
+
     $(".subnav").click(function () {
         if($(this).children(".arrow").html()=="expand_more"){
             $(this).children(".arrow").html("expand_less")
@@ -227,5 +299,6 @@ $(document).ready(function (){
 
 
     });
+
 
 });

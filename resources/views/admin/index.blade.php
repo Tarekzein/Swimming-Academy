@@ -2,6 +2,7 @@
 
 @section("content")
 
+
     <div class="row">
         <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
             <div class="card">
@@ -87,173 +88,148 @@
 
     </div>
 
-    <div class="row mt-4 ">
-        <div class="col-lg-8 col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">كارت الماية</h4>
-                    <div class="row">
-                        <div class="col-6 align-items-center">
-                            <div class="row">
-                                <h5 class="text-secondary my-auto">متبقي: <span id="watercard-val">{{$watercard}} % </span></h5>
-                            </div>
-                            <div class="progress mt-3 progress-striped active">
-                                <div data-cardpercent="{{$watercard}}" class="progress-bar progress-bar-success bg-gradient-success"
-                                     style="width: 0%;">
-                                </div>
-                            </div>
-                        </div>
+    <div class="row mt-2 ">
+{{--        <div class="col-lg-8 col-sm-6 mb-4">--}}
+{{--            <div class="card">--}}
+{{--                <div class="card-body">--}}
+{{--                    <h4 class="text-center">كارت الماية</h4>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-6 align-items-center">--}}
+{{--                            <div class="row">--}}
+{{--                                <h5 class="text-secondary my-auto">متبقي: <span id="watercard-val">{{$watercard}} % </span></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="progress mt-3 progress-striped active">--}}
+{{--                                <div data-cardpercent="{{$watercard}}" class="progress-bar progress-bar-success bg-gradient-success"--}}
+{{--                                     style="width: 0%;">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="col-6 align-items-center">
+{{--                        <div class="col-6 align-items-center">--}}
+{{--                            <div class="d-flex align-items-center">--}}
+{{--                                <div  style="flex: 30%;">--}}
+{{--                                    <h5 class="text-secondary my-auto">الفرع: </h5>--}}
+{{--                                </div>--}}
+
+{{--                                <select class="form-select  mt-3 border-dark" id="watercard-filter" required name="branch" aria-label="Default select example">--}}
+{{--                                    @php--}}
+{{--                                        $i=1;--}}
+{{--                                    @endphp--}}
+{{--                                    @foreach($branches as $b)--}}
+{{--                                        <option value="{{$b->id}}" {{$i==1? 'selected': ''}}>{{$b->name}}</option>--}}
+{{--                                        @php--}}
+{{--                                            $i+=1;--}}
+{{--                                        @endphp--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+
+{{--                    </div>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+        <div class="col-lg-6 col-sm-6 mb-4">
+            <div class="row">
+                <div class="avatar-group my-2 text-center">
+                    <img class="avatar avatar-lg" src="{{url("images/wecoach/_Path_.png")}}" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body p-2">
                             <div class="d-flex align-items-center">
-                                <div  style="flex: 30%;">
-                                    <h5 class="text-secondary my-auto">الفرع: </h5>
+                                <div class="icon d-flex align-items-center  my-auto">
+                                    <i class="material-icons text-success" style="font-size:50px;">monetization_on</i>
                                 </div>
-
-                                <select class="form-select  mt-3 border-dark" id="watercard-filter" required name="branch" aria-label="Default select example">
-                                    @php
-                                        $i=1;
-                                    @endphp
-                                    @foreach($branches as $b)
-                                        <option value="{{$b->id}}" {{$i==1? 'selected': ''}}>{{$b->name}}</option>
-                                        @php
-                                            $i+=1;
-                                        @endphp
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-4">
-            <div class="row mb-2">
-                <div class="card">
-                    <div class="card-body p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="icon d-flex align-items-center flex-grow-1 my-auto">
-                                <i class="material-icons text-success" style="font-size:50px;">monetization_on</i>
-                            </div>
-                            <div class="info flex-grow-1 my-auto" >
-                                <h4>15223 جنيه</h4>
-                                <h5 class="text-secondary"> الارادات النهاردة</h5>
+                                <div class="info me-5  my-auto" >
+                                    <h4>{{$incomeWecoach->totalIncomes}} جنيه</h4>
+                                    <h5 class="text-secondary"> ارادات الشهر</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <div class="row mb-2">
-                <div class="card">
-                    <div class="card-body p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="icon d-flex align-items-center flex-grow-1 my-auto">
-                                <i class="material-icons text-warning" style="font-size:50px;">monetization_on</i>
-                            </div>
-                            <div class="info flex-grow-1 my-auto" >
-                                <h4>15223 جنيه</h4>
-                                <h5 class="text-secondary">المصروفات النهاردة</h5>
+            <div class="row">
+                <div class="col">
+                    <div class="card mt-2">
+                        <div class="card-body p-2">
+                            <div class="d-flex align-items-center">
+                                <div class="icon d-flex align-items-center my-auto">
+                                    <i class="material-icons text-warning" style="font-size:50px;">monetization_on</i>
+                                </div>
+                                <div class="info me-5 my-auto" >
+                                    <h4>{{$outcomeWecoach->totalOutcome}} جنيه</h4>
+                                    <h5 class="text-secondary">مصروفات الشهر</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row mt-4">
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-            <div class="card z-index-2">
-                <div
-                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
-                >
-                    <div
-                        class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1"
-                    >
-                        <div class="chart">
-                            <canvas
-                                id="chart-bars"
-                                class="chart-canvas"
-                                height="170"
-                            ></canvas>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="col-lg-6 col-sm-6 mb-4">
+            <div class="row">
+                <div class="avatar-group my-2 text-center">
+                    <img class="avatar avatar-lg" src="{{url("images/waves/waveslogo.png")}}" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card ">
+                        <div class="card-body p-2">
+                            <div class="d-flex align-items-center">
+                                <div class="icon d-flex align-items-center  my-auto">
+                                    <i class="material-icons text-success" style="font-size:50px;">monetization_on</i>
+                                </div>
+                                <div class="info me-5  my-auto" >
+                                    <h4>{{$incomeWaves->totalIncomes}} جنيه</h4>
+                                    <h5 class="text-secondary"> ارادات الشهر</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <h6 class="mb-0">مشاهدات الموقع</h6>
-                    <p class="text-sm">آخر أداء للحملة</p>
-                    <hr class="dark horizontal" />
-                    <div class="d-flex">
-                        <i class="material-icons text-sm my-auto ms-1">schedule</i>
-                        <p class="mb-0 text-sm">الحملة أرسلت قبل يومين</p>
-                    </div>
-                </div>
+
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-            <div class="card z-index-2">
-                <div
-                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
-                >
-                    <div
-                        class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1"
-                    >
-                        <div class="chart">
-                            <canvas
-                                id="chart-line"
-                                class="chart-canvas"
-                                height="170"
-                            ></canvas>
+
+            <div class="row">
+                <div class="col mt-2">
+                    <div class="card">
+                        <div class="card-body p-2">
+                            <div class="d-flex align-items-center">
+                                <div class="icon d-flex align-items-center my-auto">
+                                    <i class="material-icons text-warning" style="font-size:50px;">monetization_on</i>
+                                </div>
+                                <div class="info me-5 my-auto" >
+                                    <h4>{{$outcomeWaves->totalOutcome}} جنيه</h4>
+                                    <h5 class="text-secondary">مصروفات الشهر</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <h6 class="mb-0">المبيعات اليومية</h6>
-                    <p class="text-sm">
-                        (<span class="font-weight-bolder">+15%</span>) زيادة في مبيعات
-                        اليوم.
-                    </p>
-                    <hr class="dark horizontal" />
-                    <div class="d-flex">
-                        <i class="material-icons text-sm my-auto ms-1">schedule</i>
-                        <p class="mb-0 text-sm">تم التحديث منذ 4 دقائق</p>
-                    </div>
-                </div>
+
             </div>
+
+
+
+
         </div>
-        <div class="col-lg-4 mt-4 mb-3">
-            <div class="card z-index-2">
-                <div
-                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
-                >
-                    <div
-                        class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1"
-                    >
-                        <div class="chart">
-                            <canvas
-                                id="chart-line-tasks"
-                                class="chart-canvas"
-                                height="170"
-                            ></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h6 class="mb-0">المهام المكتملة</h6>
-                    <p class="text-sm">آخر أداء للحملة</p>
-                    <hr class="dark horizontal" />
-                    <div class="d-flex">
-                        <i class="material-icons text-sm my-auto me-1">schedule</i>
-                        <p class="mb-0 text-sm">تم تحديثه للتو</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <div class="row my-4">
@@ -262,541 +238,86 @@
                 <div class="card-header pb-0">
                     <div class="row mb-3">
                         <div class="col-6">
-                            <h6>المشاريع</h6>
-                            <p class="text-sm">
-                                <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                <span class="font-weight-bold ms-1">30 انتهى</span> هذا
-                                الشهر
-                            </p>
-                        </div>
-                        <div class="col-6 my-auto text-start">
-                            <div class="dropdown float-start ps-4">
-                                <a
-                                    class="cursor-pointer"
-                                    id="dropdownTable"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    <i class="fa fa-ellipsis-v text-secondary"></i>
-                                </a>
-                                <ul
-                                    class="dropdown-menu dropdown-menu-end px-2 py-3 me-n4"
-                                    aria-labelledby="dropdownTable"
-                                >
-                                    <li>
-                                        <a
-                                            class="dropdown-item border-radius-md"
-                                            href="javascript:;"
-                                        >عمل</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item border-radius-md"
-                                            href="javascript:;"
-                                        >عمل آخر</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item border-radius-md"
-                                            href="javascript:;"
-                                        >شيء آخر هنا</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
+                            <h6>الفروع</h6>
                         </div>
                     </div>
                 </div>
-                <div class="card-body p-0 pb-2">
-                    <div class="table-responsive">
+                <div class="card-body p-0 ps-2 pb-2">
+                    <div class="table-responsive ">
                         <table class="table align-items-center mb-0">
                             <thead>
                             <tr>
                                 <th
-                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                                    class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7"
                                 >
-                                    المشروع
+                                    الفرع
                                 </th>
                                 <th
-                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                                    class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7 ps-2"
                                 >
-                                    أعضاء
+                                    عدد العملاء
                                 </th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                                    class="text-center text-uppercase text-secondary text-lg font-weight-bolder opacity-7"
                                 >
-                                    ميزانية
+                                    الاداريات
                                 </th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                                    class="text-center text-uppercase text-secondary text-lg font-weight-bolder opacity-7"
                                 >
-                                    إكمال
+                                    كرت المياه
                                 </th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-xd.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">Material XD الإصدار</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Ryan Tompson"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-1.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Romina Hadid"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-2.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Alexander Smith"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-3.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Jessica Doe"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            $14,000
-                          </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >60%</span
-                                >
+                            <tbody >
+                            @foreach($branches as $b)
+                                @php
+                                $interns=\App\Models\intern\Intern::all()->where("branch",$b->id);
+                                $managers=\App\Models\manager\Manager::all()->where("branchID",$b->id);
+                                $watercard=\App\Models\WaterCard::Where("branchID",$b->id)->get()->first();
+                                $cardpercent=$watercard?($watercard->card_credit/5000)*100:0;
+                                @endphp
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div
+                                                class="icon icon-lg icon-shape text-center "
+                                            >
+                                                <i class="material-icons opacity-10 text-dark">store</i>
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column justify-content-center"
+                                            >
+                                                <h6 class="mb-0 text-sm"><a href="{{route("admin.branch",$b->id)}}" class="link-dark link-info">{{$b->name}}</a></h6>
                                             </div>
                                         </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-info w-60"
-                                                role="progressbar"
-                                                aria-valuenow="60"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-atlassian.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">
-                                                أضف مسار التقدم إلى التطبيق الداخلي
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Romina Hadid"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-2.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Jessica Doe"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $3,000 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >10%</span
-                                >
+                                    </td>
+                                    <td>
+                                        <h6>{{count($interns)}}</h6>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <h6>{{count($managers)}}</h6>
+
+                                    </td>
+                                    <td class="align-middle ">
+                                        <div class="progress-wrapper w-75 mx-auto">
+                                            <div class="progress-info">
+                                                <div class="progress-percentage">
+                                                    <span class="text-xs font-weight-bold"
+                                                    >{{$cardpercent}}%</span
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-striped  active">
+                                                <div  class="progress-bar progress-bar-success bg-gradient-success"
+                                                     style="width: {{$cardpercent}}%;">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-info w-10"
-                                                role="progressbar"
-                                                aria-valuenow="10"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-slack.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">
-                                                إصلاح أخطاء النظام الأساسي
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Romina Hadid"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-3.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Jessica Doe"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-1.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            غير مضبوط
-                          </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >100%</span
-                                >
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-success w-100"
-                                                role="progressbar"
-                                                aria-valuenow="100"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-spotify.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">
-                                                إطلاق تطبيق الهاتف المحمول الخاص بنا
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Ryan Tompson"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Romina Hadid"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-3.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Alexander Smith"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Jessica Doe"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-1.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            $20,500
-                          </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >100%</span
-                                >
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-success w-100"
-                                                role="progressbar"
-                                                aria-valuenow="100"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-jira.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">
-                                                أضف صفحة التسعير الجديدة
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Ryan Tompson"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $500 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >25%</span
-                                >
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-info w-25"
-                                                role="progressbar"
-                                                aria-valuenow="25"
-                                                aria-valuemin="0"
-                                                aria-valuemax="25"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img
-                                                src="../assets/img/small-logos/logo-invision.svg"
-                                                class="avatar avatar-sm ms-3"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6 class="mb-0 text-sm">
-                                                إعادة تصميم متجر جديد على الإنترنت
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Ryan Tompson"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-1.jpg"
-                                            />
-                                        </a>
-                                        <a
-                                            href="javascript:;"
-                                            class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom"
-                                            title="Jessica Doe"
-                                        >
-                                            <img
-                                                alt="Image placeholder"
-                                                src="../assets/img/team-4.jpg"
-                                            />
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $2,000 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                >40%</span
-                                >
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div
-                                                class="progress-bar bg-gradient-info w-40"
-                                                role="progressbar"
-                                                aria-valuenow="40"
-                                                aria-valuemin="0"
-                                                aria-valuemax="40"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -921,6 +442,97 @@
             </div>
         </div>
     </div>
+
+{{--    <div class="row mt-4">--}}
+{{--        <div class="col-lg-4 col-md-6 mt-4 mb-4">--}}
+{{--            <div class="card z-index-2">--}}
+{{--                <div--}}
+{{--                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"--}}
+{{--                >--}}
+{{--                    <div--}}
+{{--                        class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1"--}}
+{{--                    >--}}
+{{--                        <div class="chart">--}}
+{{--                            <canvas--}}
+{{--                                id="chart-bars"--}}
+{{--                                class="chart-canvas"--}}
+{{--                                height="170"--}}
+{{--                            ></canvas>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <h6 class="mb-0">مشاهدات الموقع</h6>--}}
+{{--                    <p class="text-sm">آخر أداء للحملة</p>--}}
+{{--                    <hr class="dark horizontal" />--}}
+{{--                    <div class="d-flex">--}}
+{{--                        <i class="material-icons text-sm my-auto ms-1">schedule</i>--}}
+{{--                        <p class="mb-0 text-sm">الحملة أرسلت قبل يومين</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-lg-4 col-md-6 mt-4 mb-4">--}}
+{{--            <div class="card z-index-2">--}}
+{{--                <div--}}
+{{--                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"--}}
+{{--                >--}}
+{{--                    <div--}}
+{{--                        class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1"--}}
+{{--                    >--}}
+{{--                        <div class="chart">--}}
+{{--                            <canvas--}}
+{{--                                id="chart-line"--}}
+{{--                                class="chart-canvas"--}}
+{{--                                height="170"--}}
+{{--                            ></canvas>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <h6 class="mb-0">المبيعات اليومية</h6>--}}
+{{--                    <p class="text-sm">--}}
+{{--                        (<span class="font-weight-bolder">+15%</span>) زيادة في مبيعات--}}
+{{--                        اليوم.--}}
+{{--                    </p>--}}
+{{--                    <hr class="dark horizontal" />--}}
+{{--                    <div class="d-flex">--}}
+{{--                        <i class="material-icons text-sm my-auto ms-1">schedule</i>--}}
+{{--                        <p class="mb-0 text-sm">تم التحديث منذ 4 دقائق</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-lg-4 mt-4 mb-3">--}}
+{{--            <div class="card z-index-2">--}}
+{{--                <div--}}
+{{--                    class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"--}}
+{{--                >--}}
+{{--                    <div--}}
+{{--                        class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1"--}}
+{{--                    >--}}
+{{--                        <div class="chart">--}}
+{{--                            <canvas--}}
+{{--                                id="chart-line-tasks"--}}
+{{--                                class="chart-canvas"--}}
+{{--                                height="170"--}}
+{{--                            ></canvas>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <h6 class="mb-0">المهام المكتملة</h6>--}}
+{{--                    <p class="text-sm">آخر أداء للحملة</p>--}}
+{{--                    <hr class="dark horizontal" />--}}
+{{--                    <div class="d-flex">--}}
+{{--                        <i class="material-icons text-sm my-auto me-1">schedule</i>--}}
+{{--                        <p class="mb-0 text-sm">تم تحديثه للتو</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
 
 
 @endsection

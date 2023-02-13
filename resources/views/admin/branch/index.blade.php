@@ -43,7 +43,13 @@
 
                             </div>
 
-
+                            <div class="row px-5">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <textarea class="form-text form-control" placeholder="المواعيد" name="dates" id="date" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row px-5">
                                 <div class="col-md-6 offset-md-4">
@@ -107,6 +113,41 @@
                                 </div>
 
                             </div>
+
+{{--                            <div class="row px-5">--}}
+{{--                                <div class="col-lg-4">--}}
+{{--                                    <div class="input-group input-group-outline my-3">--}}
+{{--                                        <label class="form-label">Days</label>--}}
+
+{{--                                        {!! Form::select('days[]', [--}}
+{{--                                                         'Monday' => 'Monday',--}}
+{{--                                                         'Tuesday' => 'Tuesday',--}}
+{{--                                                         'Wednesday' => 'Wednesday',--}}
+{{--                                                         'Thursday' => 'Thursday',--}}
+{{--                                                         'Friday' => 'Friday',--}}
+{{--                                                         'Saturday' => 'Saturday',--}}
+{{--                                                         'Sunday' => 'Sunday' ],--}}
+{{--                                                          null,--}}
+{{--                                                          ['multiple' => 'multiple',--}}
+{{--                                                           'class' => 'form-control customselect'--}}
+{{--                                                           ])--}}
+{{--                                       !!}--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-4">--}}
+{{--                                    <div class="input-group input-group-outline my-3">--}}
+{{--                                        <input type="text" id="start-time" name="start-time" class="form-control">--}}
+{{--                                        <label class="form-label" for="start-time">Start Time:</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-4">--}}
+{{--                                    <div class="input-group input-group-outline my-3">--}}
+{{--                                        <input type="text" id="end-time" name="end-time" class="form-control">--}}
+{{--                                        <label class="form-label" for="end-time">End Time:</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                            </div>--}}
 
 
 

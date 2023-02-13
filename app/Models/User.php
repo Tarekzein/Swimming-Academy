@@ -61,7 +61,7 @@ class User extends Authenticatable implements Observer
     public function interns(){
         return $this->hasOne(Intern::class,"uid");
     }
-    public function admins(){
+    public function admin(){
         return $this->hasOne(Intern::class,"uid");
     }
 
@@ -74,6 +74,10 @@ class User extends Authenticatable implements Observer
     {
         $data["uid"]=$this->id;
         AnnouncementHistory::create($data);
+    }
+
+    public function schedules(){
+        return $this->hasMany(CaptainSchedule::class,"uid");
     }
 
 }

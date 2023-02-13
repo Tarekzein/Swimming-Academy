@@ -1,12 +1,15 @@
 
-
+@php
+    $user=auth()->user();
+    $admin=\App\Models\admin\Admin::where("uid",$user->id)->get()->first();
+@endphp
 <!-- Side Nav -->
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret  bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand text-center m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-            <span class="me-1 text-lg font-weight-bold text-white">{{auth()->user()->name}}</span>
-        </a>
+        <div class="avatar-group my-3 text-center">
+            <img class="avatar avatar-xl" src="{{url("images/uploads/$admin->profile_photo")}}" alt="">
+        </div>
+        <h5 class="text-center text-white">{{$user->name}}</h5>
     </div>
 
     <hr class="horizontal light mt-0 mb-2">
@@ -26,7 +29,7 @@
                     <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text me-1">المتدربات</span>
+                    <span class="nav-link-text me-1">العملاء</span>
                     <i class="start-10 position-absolute material-icons arrow opacity-10">expand_more</i>
                 </a>
             </li>
@@ -38,7 +41,7 @@
                             <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">list_alt</i>
                             </div>
-                            <span class="nav-link-text me-1">كل المتدربات</span>
+                            <span class="nav-link-text me-1">كل العملاء</span>
                         </a>
                     </li>
 
@@ -47,7 +50,7 @@
                             <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">person_add</i>
                             </div>
-                            <span class="nav-link-text me-1">اضافة متدربة</span>
+                            <span class="nav-link-text me-1">اضافة عميلة</span>
                         </a>
                     </li>
 
@@ -147,7 +150,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/rtl.html">
+                <a class="nav-link text-white " href="{{route("admin.announcements")}}">
                     <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">campaign</i>
                     </div>
@@ -155,23 +158,33 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/notifications.html">
-                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">notifications</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Notifications</span>
-                </a>
-            </li>
             <li class="nav-item mt-3">
                 <h6 class="pe-4 me-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/profile.html">
+                <a class="nav-link text-white " href="{{route("admin.profile")}}">
                     <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Profile</span>
+                    <span class="nav-link-text ms-1">الملف الشخصي</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{route("wecoach")}}">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <img class="avatar bg-light avatar-xs" src="{{url("images/wecoach/_Path_.png")}}" alt="">
+                    </div>
+                    <span class="nav-link-text ms-1">We Coach</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{route("waves")}}">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <img class="avatar avatar-xs" src="{{url("images/waves/waveslogo.png")}}" alt="">
+                    </div>
+                    <span class="nav-link-text ms-1">Waves</span>
                 </a>
             </li>
 

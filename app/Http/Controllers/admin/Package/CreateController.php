@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin\Package;
 
 use App\Http\Controllers\Controller;
+use App\Models\CaptainSchedule;
 use App\Models\PackageType;
 use App\Models\SubscriptionType;
+use App\Models\User;
 use App\Traits\Package\CreatesPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -45,5 +47,9 @@ class CreateController extends Controller
 
         return response()->json($branchSubs);
     }
+
+
+
+
 
 }

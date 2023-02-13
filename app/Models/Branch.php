@@ -12,6 +12,7 @@ class Branch extends Model
     protected $fillable=[
         "name",
         "address",
+        "dates",
         "created_at",
         "updated_at",
     ];

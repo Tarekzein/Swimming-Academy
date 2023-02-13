@@ -22,6 +22,7 @@ class CreateController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
+            'dates' => ['required'],
         ]);
     }
 

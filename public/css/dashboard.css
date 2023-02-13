@@ -8,4 +8,40 @@
     box-shadow: 0 0 10px rgba(52, 52, 52, 0.29) !important;
 }
 
+#sidenav-collapse-main {
+    height: calc(100vh - 250px); !important;
+}
 
+.customselect.form-control {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: #f2f2f2;
+    height: 45px;
+    -webkit-appearance: none;
+}
+
+.customselect.form-control::-ms-expand {
+    display: none;
+}
+
+.customselect.form-control:hover {
+    background-color: #e6e6e6;
+}
+
+.customselect.form-control:focus {
+    background-color: #e6e6e6;
+    outline: none;
+}
+
+.customselect.form-control option {
+    font-weight: normal;
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+@media screen and (max-width: 720px){
+    .academyicons {
+        display: none !important;
+    }
+}

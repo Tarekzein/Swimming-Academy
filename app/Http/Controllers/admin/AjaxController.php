@@ -10,6 +10,8 @@ use App\Models\manager\Manager;
 use App\Models\User;
 use App\Models\WaterCard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules\In;
 use PharIo\Manifest\ElementCollectionException;
 
 class AjaxController extends Controller
@@ -99,6 +101,78 @@ class AjaxController extends Controller
         $cardpercent= $watercard? ($watercard->card_credit/5000)*100:0;
 
         return response()->json(["watercard"=>$cardpercent]);
+    }
+
+    public function internsFilter(Request $request){
+        $branch=$request->input("branch");
+        if($branch==0){
+            $interns=Intern::all();
+        }
+        else{
+        $interns=Intern::where("branch",$branch)->get();
+
+        }
+
+        return response()->json(["interns"=>count($interns)]);
+    }
+
+    public function managersFilter(Request $request){
+        $branch=$request->input("branch");
+        if($branch==0){
+            $pendingManagers=count(Manager::where("profile_status","pending")->get());
+            $approvedManagers=count(Manager::where("profile_status","approved")->get());
+        }
+        else{
+            $pendingManagers=count(Manager::where("profile_status","pending")->where("branchID",$branch)->get());
+            $approvedManagers=count(Manager::where("profile_status","approved")->where("branchID",$branch)->get());
+        }
+
+        return response()->json(["pendingManagers"=>$pendingManagers,"approvedManagers"=>$approvedManagers]);
+    }
+
+    public function billingFilter(Request $request){
+        $branch=$request->input("branch");
+//        if all branches
+        if($branch==0){
+        $incomeWecoach=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE()) and academyID=1")[0];
+        $incomeWaves=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE()) and academyID=2")[0];
+
+        $outcomeWaves=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and academyID=2")[0];
+        $outcomeWecoach=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and academyID=1")[0];
+        }
+//        if specific branch
+        else{
+             $incomeWecoach=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE()) and branchID=$branch and academyID=1")[0];
+            $incomeWaves=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE()) and branchID=$branch and academyID=2")[0];
+
+            $outcomeWaves=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and branchID=$branch and academyID=2")[0];
+            $outcomeWecoach=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and branchID=$branch and academyID=1")[0];
+
+
+        }
+        if($incomeWecoach->totalIncomes==null){
+            $incomeWecoach->totalIncomes=0;
+        }
+        if($incomeWaves->totalIncomes==null){
+            $incomeWaves->totalIncomes=0;
+        }
+        if($outcomeWecoach->totalOutcome==null){
+            $outcomeWecoach->totalOutcome=0;
+        }
+        if($outcomeWaves->totalOutcome==null){
+            $outcomeWaves->totalOutcome=0;
+        }
+
+        $resp=[
+            "incomeWecoach"=>$incomeWecoach->totalIncomes,
+            "incomeWaves"=>$incomeWaves->totalIncomes,
+
+            "outcomeWecoach"=>$outcomeWecoach->totalOutcome,
+            "outcomeWaves"=>$outcomeWaves->totalOutcome,
+        ];
+
+
+        return response()->json($resp);
     }
 
 

@@ -11,7 +11,17 @@ class ViewController extends Controller
 {
     public function all(){
         $managers=Manager::all();
+
+        $pendingManagers=count(Manager::where("profile_status","pending")->get());
+        $approvedManagers=count(Manager::where("profile_status","approved")->get());
         $branch=Branch::all();
-        return view("admin.manager.all",["managers"=>$managers,"branches"=>$branch]);
+        $context= [
+            "managers"=>$managers,
+            "approvedManagers"=>$approvedManagers,
+            "pendingManagers"=>$pendingManagers,
+            "branches"=>$branch
+        ];
+
+        return view("admin.manager.all",$context);
     }
 }

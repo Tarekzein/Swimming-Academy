@@ -45,16 +45,13 @@ class UpdateController extends Controller
         $user->save();
 
         $uid=$user->id;
-        $captain=Captain::all()->where("uid",$uid);
+        $captain=Captain::all()->where("uid",$uid)->first();
 //        dd($manager);
 
-        $managerData=[
+        $captainData=[
             "study_field"=> $data->input("study_field"),
             "current_employer"=> $data->input("current_employer"),
-            "certificate"=> $data->input("previous_experience"),
-            "personal_id"=>$data["personal_id"],
-            "rescue_certificate"=>$data["rescue_certificate"],
-            "rescue_card"=>$data["rescue_card"],
+            "previous_experience"=> $data->input("previous_experience"),
         ];
 
         if($data->file("profile_photo")){
@@ -62,32 +59,32 @@ class UpdateController extends Controller
             $photoname= $file->getClientOriginalName();
 
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["profile_photo"]=$photoname;
+            $captainData["profile_photo"]=$photoname;
         }
 
         if($data->file("personal_id")){
             $file=$data->file("personal_id");
             $photoname= $file->getClientOriginalName();
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["personal_id"]=$photoname;
+            $captainData["personal_id"]=$photoname;
         }
 
         if($data->file("rescue_certificate")){
             $file=$data->file("rescue_certificate");
             $photoname= $file->getClientOriginalName();
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["rescue_certificate"]=$photoname;
+            $captainData["rescue_certificate"]=$photoname;
         }
         if($data->file("rescue_card")){
             $file=$data->file("rescue_card");
             $photoname= $file->getClientOriginalName();
             $file->move(public_path("images/uploads/"),$photoname);
-            $managerData["rescue_card"]=$photoname;
+            $captainData["rescue_card"]=$photoname;
         }
 
 
-        $captain[0]->update($managerData);
-        $response= $captain[0]->save();
+        $captain->update($captainData);
+        $response= $captain->save();
 
         return $response;
     }

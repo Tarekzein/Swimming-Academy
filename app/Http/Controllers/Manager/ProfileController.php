@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Academy;
 use App\Models\Branch;
 use App\Models\manager\Manager;
 use App\Traits\Manager\UpdatesManagers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -20,10 +22,15 @@ class ProfileController extends Controller
         $branch=Branch::find($manager->branchID);
         $user=auth()->user();
         $announcements=$user->announcements()->get();
+        $watercard=$branch->waterCard()->get()->first();
+        $cardPercent= $watercard? ($watercard->card_credit/5000)*100:0;
         $context=[
             "user"=>$request->user(),
+            "manager"=>$manager,
             "branch"=>$branch,
-            "announcements"=>$announcements
+            "announcements"=>$announcements,
+            "watercard"=>$watercard,
+            "cardPercent"=>$cardPercent,
         ];
 
         return view("manager.profile",$context);
@@ -119,5 +126,40 @@ class ProfileController extends Controller
         return $response? back()->with("message","Profile Updated Successfully"):back()->with("error","An Error Occurred");
     }
 
+    public function billing(){
+        $manager=Manager::where("uid",auth()->user()->id)->get()->first() ;
+        $branch=Branch::find($manager->branchID);
+
+
+        $incomeWecoach=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE()) and branchID=$manager->branchID and academyID=1")[0];
+        $incomeWaves=DB::select("SELECT SUM(value) as totalIncomes FROM incomes WHERE DAY(incomeDate) = DAY(CURRENT_DATE())  and branchID=$manager->branchID and academyID=2")[0];
+        if($incomeWecoach->totalIncomes==null){
+            $incomeWecoach->totalIncomes=0;
+        }
+        if($incomeWaves->totalIncomes==null){
+            $incomeWaves->totalIncomes=0;
+        }
+
+        $outcomeWecoach=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and branchID=$manager->branchID and academyID=1")[0];
+        $outcomeWaves=DB::select("SELECT SUM(value) as totalOutcome FROM outcomes WHERE DAY(outcomeDate) = DAY(CURRENT_DATE()) and branchID=$manager->branchID and academyID=2")[0];
+        if($outcomeWecoach->totalOutcome==null){
+            $outcomeWecoach->totalOutcome=0;
+        }
+        if($outcomeWaves->totalOutcome==null){
+            $outcomeWaves->totalOutcome=0;
+        }
+
+
+        $context=[
+            "branch"=>$branch,
+            "academies"=>Academy::all(),
+            "incomeWecoach"=>$incomeWecoach,
+            "incomeWaves"=>$incomeWaves,
+            "outcomeWecoach"=>$outcomeWecoach,
+            "outcomeWaves"=>$outcomeWaves,
+        ];
+
+        return view("manager.billing.index",$context);
+    }
 
 }

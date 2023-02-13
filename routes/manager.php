@@ -13,7 +13,37 @@ Route::group(["prefix"=>"profile"],function (){
     Route::post("edit/",[\App\Http\Controllers\Manager\ProfileController::class,"updateManager"])->name("manager.profile.update");
 
 //    Interns CRUD Routes
+    Route::group(["prefix"=>"billing"],function (){
+        Route::get("/",[\App\Http\Controllers\Manager\ProfileController::class,"billing"])->name("manager.billing");
 
+        //    Incomes Routes
+        Route::group(["prefix"=>"incomes"],function(){
+
+            Route::get("/",[\App\Http\Controllers\Manager\Income\ViewController::class,"all"])->name("manager.incomes");
+            Route::get("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"showForm"])->name("manager.incomeAdd");
+            Route::post("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"add"])->name("manager.incomeAdd");
+            Route::get("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"showForm"])->name("manager.incomeUpdate");
+            Route::post("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"updateIncome"])->name("manager.incomeUpdate");
+            Route::get("/delete/{income}",[\App\Http\Controllers\Manager\Income\DeleteController::class,"delete"])->name("manager.incomeDelete");
+
+
+
+        });
+
+        //    Incomes Routes
+        Route::group(["prefix"=>"outcomes"],function(){
+
+            Route::get("/",[\App\Http\Controllers\Manager\Outcome\ViewController::class,"all"])->name("manager.outcomes");
+            Route::get("/add",[\App\Http\Controllers\Manager\Outcome\CreateController::class,"showForm"])->name("manager.outcomeAdd");
+            Route::post("/add",[\App\Http\Controllers\Manager\Outcome\CreateController::class,"add"])->name("manager.outcomeAdd");
+            Route::get("/update/{outcome}",[\App\Http\Controllers\Manager\Outcome\UpdateController::class,"showForm"])->name("manager.outcomeUpdate");
+            Route::post("/update/{outcome}",[\App\Http\Controllers\Manager\Outcome\UpdateController::class,"updateOutcome"])->name("manager.outcomeUpdate");
+            Route::get("/delete/{outcome}",[\App\Http\Controllers\Manager\Outcome\DeleteController::class,"delete"])->name("manager.outcomeDelete");
+
+
+
+        });
+    });
 
     Route::group(["prefix"=>"interns"],function (){
 
@@ -51,34 +81,6 @@ Route::group(["prefix"=>"profile"],function (){
 
         Route::get("add",[\App\Http\Controllers\Manager\Watercard\CreateController::class,"form"])->name("manager.watercardAdd");
         Route::post("add",[\App\Http\Controllers\Manager\Watercard\CreateController::class,"create"])->name("manager.watercardAdd");
-
-
-    });
-
-    //    Incomes Routes
-    Route::group(["prefix"=>"incomes"],function(){
-
-        Route::get("/",[\App\Http\Controllers\Manager\Income\ViewController::class,"all"])->name("manager.incomes");
-        Route::get("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"showForm"])->name("manager.incomeAdd");
-        Route::post("/add",[\App\Http\Controllers\Manager\Income\CreateController::class,"add"])->name("manager.incomeAdd");
-        Route::get("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"showForm"])->name("manager.incomeUpdate");
-        Route::post("/update/{income}",[\App\Http\Controllers\Manager\Income\UpdateController::class,"updateIncome"])->name("manager.incomeUpdate");
-        Route::get("/delete/{income}",[\App\Http\Controllers\Manager\Income\DeleteController::class,"delete"])->name("manager.incomeDelete");
-
-
-
-    });
-
-    //    Incomes Routes
-    Route::group(["prefix"=>"outcomes"],function(){
-
-        Route::get("/",[\App\Http\Controllers\Manager\Outcome\ViewController::class,"all"])->name("manager.outcomes");
-        Route::get("/add",[\App\Http\Controllers\Manager\Outcome\CreateController::class,"showForm"])->name("manager.outcomeAdd");
-        Route::post("/add",[\App\Http\Controllers\Manager\Outcome\CreateController::class,"add"])->name("manager.outcomeAdd");
-        Route::get("/update/{outcome}",[\App\Http\Controllers\Manager\Outcome\UpdateController::class,"showForm"])->name("manager.outcomeUpdate");
-        Route::post("/update/{outcome}",[\App\Http\Controllers\Manager\Outcome\UpdateController::class,"updateOutcome"])->name("manager.outcomeUpdate");
-        Route::get("/delete/{outcome}",[\App\Http\Controllers\Manager\Outcome\DeleteController::class,"delete"])->name("manager.outcomeDelete");
-
 
 
     });

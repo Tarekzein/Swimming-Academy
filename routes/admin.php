@@ -132,7 +132,9 @@ Route::group(["prefix"=>"dashboard"],function (){
     });
 
 
-
+    Route::group(["prefix"=>"watercard"],function (){
+        Route::post("add",[\App\Http\Controllers\admin\Watercard\CreateController::class,"create"])->name("admin.watercardAdd");
+    });
 
 
 
@@ -146,18 +148,31 @@ Route::group(["prefix"=>"dashboard"],function (){
         Route::get("rejectCaptain",[\App\Http\Controllers\admin\AjaxController::class,"rejectCaptain"])->name("ajax.rejectCaptain");
 
         Route::get("watercard-filter",[\App\Http\Controllers\admin\AjaxController::class,"watercardFilter"]);
-//        Jquery Routes
+
+        Route::get("interns-filter",[\App\Http\Controllers\admin\AjaxController::class,"internsFilter"]);
+
+        Route::get("managers-filter",[\App\Http\Controllers\admin\AjaxController::class,"managersFilter"]);
+
+        Route::get("billing-filter",[\App\Http\Controllers\admin\AjaxController::class,"billingFilter"]);
+
         Route::get("branch-subs",[\App\Http\Controllers\admin\Package\CreateController::class,"getSubsOfBranch"])->name("jq.getBranchSubs");
 
     });
 
     Route::group(['prefix'=>"announcements"],function (){
-        Route::get("/add",[\App\Http\Controllers\admin\Announcement\CreateController::class,"form"])->name("admin.announcement");
+        Route::get("/",[\App\Http\Controllers\admin\DashboardController::class,"announcements"])->name("admin.announcements");
         Route::post("/add",[\App\Http\Controllers\admin\Announcement\CreateController::class,"createsAnnouncement"])->name("admin.announcement");
     });
 
 });
 
+
+Route::group(["prefix"=>"profile"],function (){
+
+    Route::get("/",[\App\Http\Controllers\admin\ProfileController::class,"index"])->name("admin.profile");
+
+
+});
 
 
 

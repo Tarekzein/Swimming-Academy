@@ -13,7 +13,6 @@
                 <div class="col-md-6">
                     <textarea class="form-text form-control" name="announcement" id="announcement" cols="30" rows="10"></textarea>
                 </div>
-
             </div>
 
             <div class="row mb-3">
@@ -67,7 +66,7 @@
 
                 <div class="col-md-6">
                     <input id="end_date" type="date"
-                           class="form-control @error('incomeDate') is-invalid @enderror" name="end_date"
+                           class="form-control @error('end_date') is-invalid @enderror" name="end_date"
                            value="{{ old('end_date') }}" required autocomplete="end_date" autofocus>
 
                     @error('end_date')

@@ -44,6 +44,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix("manager")
                 ->group(base_path('routes/manager.php'));
 
+            Route::middleware('captain')
+                ->prefix("captain")
+                ->group(base_path('routes/captain.php'));
+
 
         });
     }
