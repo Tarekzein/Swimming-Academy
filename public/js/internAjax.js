@@ -16,7 +16,7 @@ $(document).ready(function () {
                 console.log(response);
                 let subs= $("#subs");
                 subs.prop("disabled",false);
-                subs.html("<option selected>الخدمة</option>");
+                subs.html("<option value='null' selected>الخدمة</option>");
                 response.forEach(e=>{
 
                     let option= `<option value='${e.id}'>${e.name}</option>`
@@ -44,7 +44,7 @@ $(document).ready(function () {
             success:function (response){
                 let subs= $("#cap");
                 subs.prop("disabled",false);
-                subs.html("<option selected>الكباتن في الفرع</option>");
+                subs.html("<option value='null' selected>الكباتن في الفرع</option>");
                 response.forEach(e=>{
 
                     let option= `<option value='${e.id}'>${e.name}</option>`
@@ -78,7 +78,7 @@ $(document).ready(function () {
             success:function (response){
                 let subs= $("#pack");
                 subs.prop("disabled",false);
-                subs.html("<option selected>الباكدج</option>");
+                subs.html("<option value='null' selected>الباكدج</option>");
                 response.forEach(e=>{
 
                     let option= `<option value='${e.id}'>${e.package_name} - ج.م${e.price}  -  حصص${e.sessions_number}</option>`
@@ -123,6 +123,7 @@ $(document).ready(function () {
 
         });
     })
+
 
 
 })

@@ -17,7 +17,7 @@ $(document).ready(function (){
                 console.log(response);
                 let subs= $("#subs");
                 subs.prop("disabled",false);
-                subs.html("<option selected>الخدمة</option>");
+                subs.html("<option value='null' selected>الخدمة</option>");
                 response.forEach(e=>{
 
                     let option= `<option value='${e.id}'>${e.name}</option>`
@@ -299,6 +299,7 @@ $(document).ready(function (){
 
 
     });
+
 
 
 });

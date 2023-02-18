@@ -15,12 +15,15 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="row d-flex h-100 justify-content-center">
-            <div class="col">
-                <h1><a href="{{route("wecoach")}}">We Coach</a></h1>
-            </div>
-            <div class="col">
-                <h1><a href="{{route("waves")}}">Waves</a></h1>
+        <div class="row position-absolute" style="left:50%; top:50%; transform:translate(-50%,-50%)" >
+            <div class="row vw-100 justify-content-center" >
+                <div class="col d-flex justify-content-center">
+                    <h1 class=" mx-auto"><a href="{{route("wecoach")}}"><img src="{{url("images/wecoach/_Path_.png")}}" style="filter: drop-shadow(2px 4px 6px gray);" alt=""></a></h1>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <h1><a href="{{route("waves")}}"><img src="{{url("images/waves/waveslogo.png")}}" style="filter: drop-shadow(2px 4px 6px gray);" alt=""></a></h1>
+                </div>
+
             </div>
         </div>
     </div>

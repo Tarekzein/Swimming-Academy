@@ -4,8 +4,9 @@
     <div class="container">
 
 
-    <div class="pt-5">
+    <div class="pt-5 d-flex flex-column justify-content-center ">
         <h5 class="text-secondary text-center"> بيانات  {{$branch->name}}</h5>
+        <h6 class="text-secondary  text-center"><a href="{{route("admin.branchDelete",$branch->id)}}">مسح الفرع</a></h6>
     </div>
 
     <div class="row pt-3">
@@ -343,6 +344,75 @@
 
         </div>
     </div>
+
+        <div class="pt-5">
+            <h5 class="text-secondary text-center">معلومات الفرع</h5>
+        </div>
+        <div class="row pt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header form-header cursor-pointer p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-dark d-flex align-items-center justify-content-between shadow-dark border-radius-lg pt-4 pb-3">
+                            <h3 class="text-white text-lg-end text-capitalize pe-3">بيانات الفرع</h3>
+                            <h2 class="text-white text-lg-end iconchange text-capitalize ps-3"><i class="fa fa-plus-circle text-xl-center"></i></h2>
+                        </div>
+                    </div>
+                    <div class="card-body form-body px-0 pb-2" style="display:none;">
+                        <form method="post" action="{{route("admin.branchUpdate",$branch->id)}}">
+                            @csrf
+
+                            <div class="row px-5">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="name" class="form-label text-md-end">{{ __('') }}</label>
+                                        <input id="name" placeholder="الاسم" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $branch->name }}" required autocomplete="name" autofocus>
+
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+
+                                        <label for="address" class="form-label text-md-end">{{ __('') }}</label>
+                                        <input id="address" placeholder="العنوان" type="text" class="form-control @error('address') is-invalid @enderror" value="{{$branch->address}}" name="address" required >
+
+                                        @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="input-group input-group-outline my-3">
+                                        <textarea class="form-text form-control" placeholder="المواعيد" name="dates" id="date" cols="30" rows="10">{{$branch->dates}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row px-5">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('تعديل الفرع') }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
 
     </div>
 

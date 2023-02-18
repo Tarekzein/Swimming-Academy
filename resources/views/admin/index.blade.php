@@ -233,7 +233,7 @@
     </div>
 
     <div class="row my-4">
-        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="row mb-3">
@@ -253,7 +253,7 @@
                                     الفرع
                                 </th>
                                 <th
-                                    class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7 ps-2"
+                                    class="text-center text-uppercase text-secondary text-lg font-weight-bolder opacity-7"
                                 >
                                     عدد العملاء
                                 </th>
@@ -292,7 +292,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="text-center align-middle">
                                         <h6>{{count($interns)}}</h6>
                                     </td>
                                     <td class="align-middle text-center text-sm">
@@ -324,123 +324,123 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="card h-100">
-                <div class="card-header pb-0">
-                    <h6>نظرة عامة على الطلبات</h6>
-                    <p class="text-sm">
-                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                        <span class="font-weight-bold">24%</span> هذا الشهر
-                    </p>
-                </div>
-                <div class="card-body p-3">
-                    <div class="timeline timeline-one-side">
-                        <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-success text-gradient"
-                      >notifications</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    $2400, تغييرات في التصميم
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    22 DEC 7:20 PM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-danger text-gradient"
-                      >code</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    طلب جديد #1832412
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    21 DEC 11 PM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-info text-gradient"
-                      >shopping_cart</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    مدفوعات الخادم لشهر أبريل
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    21 DEC 9:34 PM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-warning text-gradient"
-                      >credit_card</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    تمت إضافة بطاقة جديدة للطلب #4395133
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    20 DEC 2:20 AM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline-block mb-3">
-                    <span class="timeline-step">
-                      <i class="material-icons text-primary text-gradient"
-                      >key</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    فتح الحزم من أجل التطوير
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    18 DEC 4:54 AM
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline-block">
-                    <span class="timeline-step">
-                      <i class="material-icons text-dark text-gradient"
-                      >payments</i
-                      >
-                    </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    طلب جديد #9583120
-                                </h6>
-                                <p
-                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"
-                                >
-                                    17 DEC
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="col-lg-4 col-md-6">--}}
+{{--            <div class="card h-100">--}}
+{{--                <div class="card-header pb-0">--}}
+{{--                    <h6>نظرة عامة على الطلبات</h6>--}}
+{{--                    <p class="text-sm">--}}
+{{--                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>--}}
+{{--                        <span class="font-weight-bold">24%</span> هذا الشهر--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--                <div class="card-body p-3">--}}
+{{--                    <div class="timeline timeline-one-side">--}}
+{{--                        <div class="timeline-block mb-3">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-success text-gradient"--}}
+{{--                      >notifications</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    $2400, تغييرات في التصميم--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    22 DEC 7:20 PM--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="timeline-block mb-3">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-danger text-gradient"--}}
+{{--                      >code</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    طلب جديد #1832412--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    21 DEC 11 PM--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="timeline-block mb-3">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-info text-gradient"--}}
+{{--                      >shopping_cart</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    مدفوعات الخادم لشهر أبريل--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    21 DEC 9:34 PM--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="timeline-block mb-3">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-warning text-gradient"--}}
+{{--                      >credit_card</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    تمت إضافة بطاقة جديدة للطلب #4395133--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    20 DEC 2:20 AM--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="timeline-block mb-3">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-primary text-gradient"--}}
+{{--                      >key</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    فتح الحزم من أجل التطوير--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    18 DEC 4:54 AM--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="timeline-block">--}}
+{{--                    <span class="timeline-step">--}}
+{{--                      <i class="material-icons text-dark text-gradient"--}}
+{{--                      >payments</i--}}
+{{--                      >--}}
+{{--                    </span>--}}
+{{--                            <div class="timeline-content">--}}
+{{--                                <h6 class="text-dark text-sm font-weight-bold mb-0">--}}
+{{--                                    طلب جديد #9583120--}}
+{{--                                </h6>--}}
+{{--                                <p--}}
+{{--                                    class="text-secondary font-weight-bold text-xs mt-1 mb-0"--}}
+{{--                                >--}}
+{{--                                    17 DEC--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
 {{--    <div class="row mt-4">--}}

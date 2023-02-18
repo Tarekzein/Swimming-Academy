@@ -1,6 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
+    <main style="background-image: url('{{url("images/loginbg.png")}}'); box-shadow: inset 0 0 2000px rgba(0,0,0,0.8); background-position: center; background-size: cover">
+
     <div
         class="container col-lg-4 col-md-4 col-sm-4 position-relative form-container"
         {{--    style="margin-right: 0px"--}}
@@ -67,7 +69,7 @@
                 <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
             </div>
-            <a href="{{ route('wepassword.request') }}" class="forgetP btn btn-link text-decoration-none">نسيت الرقم السري؟</a>
+            <a href="#" class="forgetP btn btn-link text-decoration-none">نسيت الرقم السري؟</a>
             <br />
             <div class="d-flex btn-container">
                 <button type="submit" class="btn btn-primary shadow rounded-pill">دخول</button>
@@ -84,4 +86,5 @@
             </footer>
         </form>
     </div>
+    </main>
 @endsection

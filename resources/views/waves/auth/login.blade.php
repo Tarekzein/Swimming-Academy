@@ -70,7 +70,7 @@
             <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
         </div>
-        <a href="{{ route('password.request') }}" class="forgetP btn btn-link text-decoration-none">نسيت الرقم السري؟</a>
+        <a href="#" class="forgetP btn btn-link text-decoration-none">نسيت الرقم السري؟</a>
         <br />
         <div class="d-flex btn-container">
             <button type="submit" class="btn btn-primary shadow rounded-pill">دخول</button>

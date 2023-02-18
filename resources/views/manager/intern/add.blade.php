@@ -94,12 +94,14 @@
                                 <div class="col-md-6">
                                     <div class="input-group input-group-outline my-3">
                                         <select class="form-select" name="academyID" aria-label="Default select example">
-                                            <option selected>الاكاديمية</option>
+                                            <option value="null" selected>الاكاديمية</option>
                                             @foreach($academies as $a)
                                                 <option value="{{$a->id}}">{{$a->name}}</option>
                                             @endforeach
                                         </select>
+
                                     </div>
+                                        <h6 class="text-danger text-sm select-message"></h6>
                                 </div>
                             </div>
 

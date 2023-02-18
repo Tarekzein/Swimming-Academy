@@ -16,6 +16,8 @@ class InternRoutes extends Controller
         Route::group(["middleware"=>["auth","isIntern"]],function (){
 
             Route::get("/",[ProfileController::class,"index"])->name("weintern.profile");
+            Route::get("edit",[ProfileController::class,"profileEdit"])->name("weintern.profile.editform");
+            Route::post("edit/{user}",[ProfileController::class,"updateIntern"])->name("weintern.profile.edit");
 
             Route::group(["prefix"=>"apply"],function (){
 
@@ -23,6 +25,7 @@ class InternRoutes extends Controller
                 Route::post("/",[SessionsController::class,"reserve"])->name("wecoach.apply");
 
             });
+
             Route::group(["prefix"=>"ajax"],function (){
 
                 Route::get("branch-subs",[\App\Http\Controllers\admin\Package\CreateController::class,"getSubsOfBranch"])->name("jq.getBranchSubs");

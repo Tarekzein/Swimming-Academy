@@ -18,13 +18,13 @@
                 @guest
                     @if (Route::has('welogin'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}</a>
                         </li>
                     @endif
 
                     @if (Route::has('weregister'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('اشتراك') }}</a>
                         </li>
                     @endif
                 @else
@@ -46,7 +46,7 @@
                                     Dashboard
                                 </a>
                             @elseif(count($intern)!==0)
-                                <a class="dropdown-item" href="{{route("intern.profile")}}" >
+                                <a class="dropdown-item" href="{{route("waintern.profile")}}" >
                                     Profile
                                 </a>
                             @elseif(count($manager)!==0)
@@ -104,13 +104,13 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('اشتراك') }}</a>
                         </li>
                     @endif
                 @else
@@ -132,7 +132,7 @@
                                     Dashboard
                                 </a>
                             @elseif(count($intern)!==0)
-                                <a class="dropdown-item" href="{{route("intern.profile")}}" >
+                                <a class="dropdown-item" href="{{route("waintern.profile")}}" >
                                     Profile
                                 </a>
                             @elseif(count($manager)!==0)

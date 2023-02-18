@@ -17,6 +17,19 @@ $annNum=count($announcements);
                     >لوحات القيادة</a
                     >
                 </li>
+                <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
+                    <a
+                        href="javascript:;"
+                        class="nav-link text-body p-0"
+                        id="iconNavbarSidenav"
+                    >
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </li>
             </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
@@ -30,19 +43,6 @@ $annNum=count($announcements);
                         <i class="material-icons opacity-10">logout</i>
                         <span class="d-sm-inline my-auto d-none">تسجيل الخروج</span>
 
-                    </a>
-                </li>
-                <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
-                    <a
-                        href="javascript:;"
-                        class="nav-link text-body p-0"
-                        id="iconNavbarSidenav"
-                    >
-                        <div class="sidenav-toggler-inner">
-                            <i class="sidenav-toggler-line"></i>
-                            <i class="sidenav-toggler-line"></i>
-                            <i class="sidenav-toggler-line"></i>
-                        </div>
                     </a>
                 </li>
 

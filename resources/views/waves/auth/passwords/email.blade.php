@@ -1,9 +1,11 @@
 @extends('layouts.auth')
 
 @section('content')
-<div
+    <main style="background-image: url('{{url("images/loginbg.png")}}'); box-shadow: inset 0 0 2000px rgba(0,0,0,0.8); background-position: center; background-size: cover">
+
+    <div
     class="container col-lg-4 col-md-4 col-sm-4 position-relative form-container"
-    style="margin-right: 0px"
+{{--    style="margin-right: 0px;"--}}
 >
     @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -52,5 +54,5 @@
         </footer>
     </form>
 </div>
-
+    </main>
 @endsection

@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" rel="stylesheet">
     <link href="{{url("css/wecoach/main.css")}}" rel="stylesheet">
     <link href="{{url("css/wecoach/user.css")}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -35,10 +36,23 @@
 <script src="
     https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js
     "></script>
+
 <script src="{{url("js/jquery-3.6.0.min.js")}}"></script>
 <script src="{{url("js/wecoach/js2.js")}}"></script>
 <script src="{{url("js/wecoach/main.js")}}"></script>
 <script src="{{url("js/wecoach/sliderjs.js")}}"></script>
 <script src="{{url("js/internAjax.js")}}"></script>
+<script src="{{url("js/common.js")}}" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+
+<script>
+    $('#start-time').timepicker({
+        timeFormat: 'hh:mm TT'
+    });
+</script>
+
 </body>
 </html>

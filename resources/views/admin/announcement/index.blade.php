@@ -27,24 +27,28 @@
                                     <div class="input-group input-group-outline my-3">
                                         <select  class="form-select" id="branch" required name="branchID"
                                                  aria-label="Default select example">
-                                            <option selected >الفرع</option>
+                                            <option value="null" selected >الفرع</option>
                                             @foreach($branches as $b)
                                                 <option value="{{$b->id}}">{{$b->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
                                         <select  class="form-select" id="userType" required name="userType"
                                                  aria-label="Default select example">
-                                            <option selected>User Type</option>
+                                            <option value="null" selected>User Type</option>
                                             <option  value="all">all</option>
                                             <option  value="manager">Managers</option>
                                             <option  value="captain">Captains</option>
                                             <option  value="intern">Interns</option>
                                         </select>
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
                                 </div>
                             </div>
 
@@ -54,13 +58,14 @@
                                         <select  class="form-select" id="type" required name="type"
                                                  aria-label="Default select example">
 
-                                            <option selected >Announcement Type</option>
+                                            <option value="null" selected >Announcement Type</option>
                                             <option value="danger">Warning</option>
                                             <option value="success">prize</option>
                                             <option value="primary">normal</option>
 
                                         </select>
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
 
                                 </div>
 

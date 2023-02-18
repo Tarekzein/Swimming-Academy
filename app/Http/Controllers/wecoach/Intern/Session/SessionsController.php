@@ -8,15 +8,21 @@ use App\Models\Branch;
 use App\Models\CaptainSchedule;
 use App\Models\intern\Intern;
 use App\Models\intern\InternSessionHistory;
+use App\Models\intern\SessionMeta;
 use App\Models\PackageType;
 use App\Models\SubscriptionType;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SessionsController extends Controller
 {
     public function form(){
         $user=auth()->user();
+        $sessions=DB::select("SELECT * FROM session_metas WHERE uid=$user->id and MONTH(month)=MONTH(CURRENT_DATE())");
+        if(count($sessions)!=0){
+            return back();
+        }
         $intern=$user->interns()->get()->first();
         $academy=Academy::find($intern->academyID);
         $branches=Branch::all();
@@ -45,11 +51,18 @@ class SessionsController extends Controller
             InternSessionHistory::create([
                 "uid"=>$uid,
                 "capID"=>$capID,
-                "sessionID"=>$session->id
+                "sessionID"=>$session->id,
+                "sessionTime"=>$request->input("start-time")
             ]);
         }
+        $session_meta=SessionMeta::create([
+            "uid"=>$uid,
+            "capID"=>$capID,
+            "month"=>date('Y-m-d'),
+            "pay_method"=>$request->input("payment_method")
+        ]);
 
-        return back()->with("message","تم الاشتراك بنجاح");
+        return redirect(route("weintern.profile"));
     }
 
 

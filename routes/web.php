@@ -56,6 +56,11 @@ Route::group(["prefix"=>"waves"],function (){
     Route::post("password/reset",[\App\Http\Controllers\waves\Auth\ForgotPasswordController::class,"sendResetLinkEmail"])->name("password.email");
 //    \Illuminate\Support\Facades\Auth::routes();
 
+    Route::group(["prefix"=>"profile"],function (){
+        \App\Http\Controllers\waves\Intern\InternRoutes::routes();
+    });
+
+
 
 //    Route::group(["prefix"=>"profile"],function (){
 //        \App\Http\Controllers\Intern\InternRoutes::routes();

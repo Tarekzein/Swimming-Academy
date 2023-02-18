@@ -94,11 +94,11 @@
 
                 <footer class="pt-3">
                     <p class="text-center" style="color: #ada6a6">
-                        لا املك حساب حتي الان
+                        لديك حساب بالفعل ؟
                     </p>
 
                     <p class="text-center" style="color: #4743e0">
-                        <a href="{{route("register")}}" style="color: #4743e0" class="btn btn-link text-decoration-none">سجلي حساب جديد</a>
+                        <a href="{{route("login")}}" style="color: #4743e0" class="btn btn-link text-decoration-none">سجلي  الدخول</a>
                     </p>
                 </footer>
             </form>

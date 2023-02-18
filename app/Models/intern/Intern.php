@@ -18,6 +18,7 @@ class Intern extends Model
         "group_type",
         "subType",
         "upgraded",
+        "profile_photo",
         "created_at",
         "updated_at",
     ];

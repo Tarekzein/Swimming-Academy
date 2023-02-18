@@ -40,8 +40,6 @@
     color: #000;
 }
 
-@media screen and (max-width: 720px){
-    .academyicons {
-        display: none !important;
-    }
+form input:focus ~ label, form input:not(:placeholder-shown) ~ label {
+    line-height: 1.25 !important;
 }

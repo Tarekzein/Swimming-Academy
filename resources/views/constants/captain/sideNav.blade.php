@@ -1,11 +1,26 @@
 @php
     $user=auth()->user();
     $captain=\App\Models\captain\Captain::where("uid","$user->id")->get()->first();
+    $capRatings=\App\Models\captain\Rating::all()->where("uid",$user->id);
+    $totalVal=0;
+    $totalRatings=0;
+    foreach ($capRatings as $r){
+        $totalVal+=$r->value;
+        $totalRatings+=1;
+    }
+
+    $averageRating=$totalRatings!=0?$totalVal/$totalRatings:0;
+    $stars=round(($averageRating/100)*5,1);
 @endphp
 
 <!-- Side Nav -->
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret  bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
+        <i
+            class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+            aria-hidden="true"
+            id="iconSidenav"
+        ></i>
        <div class="avatar-group my-3 text-center">
            <img class="avatar avatar-xl" src="{{url("images/uploads/$captain->profile_photo")}}" alt="">
        </div>
@@ -22,7 +37,7 @@
                     <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
-                    <span class="nav-link-text me-1"> الملف الشخصي </span>
+                    <span class="nav-link-text me-1"> الرئيسية </span>
                 </a>
             </li>
 
@@ -35,13 +50,32 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="#">
+                <a class="nav-link text-white " href="{{route("captain.profile")}}">
                     <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">edit</i>
                     </div>
                     <span class="nav-link-text ms-1">تعديل الملف الشخصى</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{route("wecoach")}}">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <img class="avatar bg-light avatar-xs" src="{{url("images/wecoach/_Path_.png")}}" alt="">
+                    </div>
+                    <span class="nav-link-text ms-1">We Coach</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{route("waves")}}">
+                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                        <img class="avatar avatar-xs" src="{{url("images/waves/waveslogo.png")}}" alt="">
+                    </div>
+                    <span class="nav-link-text ms-1">Waves</span>
+                </a>
+            </li>
+
 
             <hr class="horizontal light mt-2 mb-2">
 
@@ -51,13 +85,12 @@
 
             <li class="nav-item">
                 <div class="nav-link text-white ">
-                    <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10" style="font-size: 30px !important;">verified_user</i>
+                    <div class="text-success text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons  opacity-10" style="font-size: 30px !important;">verified_user</i>
                     </div>
-                    <div class="d-flex me-3 flex-column">
+                    <div class="d-flex align-items-center me-3">
 
                     <h5 class="nav-link-text text-white text-bold ms-1">مدربة معتمدة</h5>
-                    <span class=" text-sm text-bold ms-1">انقاز غرقي</span>
                     </div>
 
                 </div>
@@ -66,14 +99,13 @@
 
             <li class="nav-item">
                 <div class="nav-link text-white ">
-                    <div class="text-white text-center  ms-2 d-flex align-items-center justify-content-center">
-                        <h5 class="text-white"><i class="material-icons opacity-10" style="font-size: 30px !important;">star</i></h5>
+                    <div class="text-warning text-center  ms-2 d-flex align-items-center justify-content-center">
+                        <h5 class="text-warning"><i class="material-icons opacity-10" style="font-size: 30px !important;">star</i></h5>
                     </div>
 
                     <div class="d-flex me-3 flex-column flex-wrap">
                         <h5 class="nav-link-text text-white  text-bold ">تقييمك</h5>
-                        <span class=" text-sm  text-bold text-white ">3.5/5</span>
-
+                        <span class=" text-sm  text-bold text-white ">5 / {{$stars!=0?$stars:'-'}}</span>
                     </div>
 
 

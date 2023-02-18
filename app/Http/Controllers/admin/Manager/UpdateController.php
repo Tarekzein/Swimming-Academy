@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
 use App\Models\manager\Manager;
 use App\Models\User;
 use App\Traits\Manager\UpdatesManagers;
@@ -89,5 +90,15 @@ class UpdateController extends Controller
 
         return $response;
     }
-
+    public function showUpdateForm(User $user){
+        $manager=$user->managers()->where("uid",$user->id)->get()->first();
+        $branches=Branch::all();
+        $context=[
+            "user"=>$user,
+            "manager"=>$manager,
+            "branches"=>$branches,
+        ];
+//        dd($context);
+        return view("admin.manager.update",$context);
+    }
 }

@@ -68,27 +68,48 @@
                             </div>
 
                             <div class="row px-5">
-                                <div class="col-lg-4 col-md-6">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="input-group input-group-outline my-3">
                                         <label for="address" class="form-label text-md-end">{{ __('العنوان') }}</label>
                                         <input id="address" type="text" class="form-control" name="address" required >
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-6">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="input-group input-group-outline my-3">
                                         <label for="password-confirm" class="form-label text-md-end">{{ __('رقم الواتس اب') }}</label>
 
                                         <input id="whatsapp" class="form-control whatsapp" type="text"  name="whatsapp" required >
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6">
+                            </div>
+
+                            <div class="row px-5">
+
+                                <div class="col-lg-6 col-md-6">
                                     <div class="input-group input-group-outline my-3">
                                         <label for="birthdate" class="form-label text-md-end">{{ __('تاريخ الميلاد') }}</label>
                                         <input id="birthdate"  type="date" class="form-control" name="birthdate" required >
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-outline my-3">
+
+                                        <select class="form-select" id="branchID"  required name="branchID"
+                                                aria-label="Default select example">
+                                            <option value="null" selected>Branches</option>
+                                            @foreach($branches as $a)
+
+                                                <option value="{{$a->id}}">{{$a->name}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
+                                </div>
                             </div>
+
+
 
                             <div class="row px-5 mb-0">
                                 <div class="col offset-md-4">

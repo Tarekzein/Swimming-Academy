@@ -81,7 +81,8 @@
 
 <script src="{{url("js/jquery-3.6.0.min.js")}}" ></script>
 <script src="{{url("js/admin.js")}}" ></script>
-
+<script src="{{url("js/searchFunc.js")}}" ></script>
+<script src="{{url("js/common.js")}}" ></script>
 <!--   Core JS Files   -->
 <script src="{{url("js/core/popper.min.js")}}"></script>
 <script src="{{url("js/core/bootstrap.min.js")}}"></script>

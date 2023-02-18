@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="card-body form-body px-0 pb-2" style="display:none;">
-                    <form method="post" action="{{route("admin.incomeAdd")}}">
+                    <form method="post" class="form" action="{{route("manager.incomeAdd")}}">
                         @csrf
 
 
@@ -122,13 +122,14 @@
 
                                     <select class="form-select" id="academyID"  required name="academyID"
                                             aria-label="Default select example">
-                                        <option selected>Academy</option>
+                                        <option value="null" selected>Academy</option>
                                         @foreach($academies as $a)
-
                                             <option value="{{$a->id}}">{{$a->name}} </option>
                                         @endforeach
                                     </select>
+                                    <br>
                                 </div>
+                                <h6 class="text-danger text-sm select-message"></h6>
                             </div>
 
                             <input id="branchID" type="text"
@@ -160,7 +161,7 @@
                                 <div class="input-group input-group-outline my-3">
                                     <label for="value"
                                            class="form-label text-md-end">{{ __('Value	') }}</label>
-                                    <input id="value" type="number"
+                                    <input id="value" type="number" min="0"
                                            class="form-control @error('discount_percent') is-invalid @enderror" name="value"
                                            value="{{ old('value') }}" required autocomplete="value" autofocus>
 
@@ -218,7 +219,7 @@
                     </div>
                 </div>
                 <div class="card-body form-body px-0 pb-2" style="display:none;">
-                    <form method="post" action="{{route("admin.outcomeAdd")}}">
+                    <form method="post" class="form" action="{{route("manager.outcomeAdd")}}">
                         @csrf
 
 
@@ -228,13 +229,15 @@
 
                                     <select class="form-select" id="academyID"  required name="academyID"
                                             aria-label="Default select example">
-                                        <option selected>Academy</option>
+                                        <option value="null" selected>Academy</option>
                                         @foreach($academies as $a)
 
                                             <option value="{{$a->id}}">{{$a->name}} </option>
                                         @endforeach
                                     </select>
+
                                 </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
                             </div>
 
                             <input id="branchID" type="text"
@@ -257,6 +260,7 @@
                                     @enderror
 
                                 </div>
+
                             </div>
 
                         </div>

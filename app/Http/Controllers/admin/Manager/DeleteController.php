@@ -13,6 +13,6 @@ class DeleteController extends Controller
     public function delete(User $user){
 //        dd($manager);
         $user->delete();
-        return back();
+        return back()->with("message","Deleted Successfully");
     }
 }

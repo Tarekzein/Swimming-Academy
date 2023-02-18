@@ -40,11 +40,11 @@
 
     </div>
     <div class="col main-column">
-        <div class="row">
+        <div class="row d-flex flex-column justify-content-center align-items-center">
             <p class="service">خدماتنا
             </p>
-            <hr class="dashed-line">
-            </div>
+            <hr class="dashed-line mx-auto start-0">
+        </div>
         <div class="row">
             <p class="academy3">وعلشان نسهلها عليكي وفرنالك خدمات كتير عشان تناسبك <br>
                 تتدربي على كل اللي تحتاجيه على إيد مدربات معتمدات فى <br>
@@ -61,7 +61,7 @@
                     المتدربات بيمارسوا تمارين اللياقة البدنية لمدة ساعة تقريبًا ،<br>
                     مع التركيز على مقاومة الماية وخلق جو ممتع مع الموسيقى
                 </p>
-                <button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button>
+                <a href="{{route("wecoach.apply")}}"><button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button></a>
             </div>
             <div class="col-md-6 col-lg-6 center" data-aos="slide-left" data-aos-duration="1000">
                 <img src="{{url("images/wecoach/Switch.png")}}" alt="" class="photo1">
@@ -80,7 +80,7 @@
                     المتدربات بيمارسوا تمارين اللياقة البدنية لمدة ساعة تقريبًا ،<br>
                     مع التركيز على مقاومة الماية وخلق جو ممتع مع الموسيقى
                 </p>
-                <button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button>
+                <a href="{{route("wecoach.apply")}}"><button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button></a>
             </div>
 
         </div>
@@ -94,7 +94,7 @@
                     المتدربات بيمارسوا تمارين اللياقة البدنية لمدة ساعة تقريبًا ،<br>
                     مع التركيز على مقاومة الماية وخلق جو ممتع مع الموسيقى
                 </p>
-                <button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button>
+                <a href="{{route("wecoach.apply")}}"><button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button></a>
             </div>
             <div class="col-md-6 col-lg-6 center" data-aos="slide-left" data-aos-duration="1000">
                 <img src="{{url("images/wecoach/kid.png")}}" alt="" class="photo1">
@@ -113,13 +113,13 @@
                     المتدربات بيمارسوا تمارين اللياقة البدنية لمدة ساعة تقريبًا ،<br>
                     مع التركيز على مقاومة الماية وخلق جو ممتع مع الموسيقى
                 </p>
-                <button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button>
+                <a href="{{route("wecoach.apply")}}"><button class="toggle BTN2 rounded-pill mx-auto d-block">سجلى الان</button></a>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex flex-column justify-content-center align-items-center">
             <p class="coaches1">مدرباتنا
             </p>
-            <hr class="dashed-line">
+            <hr class="dashed-line mx-auto start-0">
         </div>
         <div class="row">
             <p class="coaches2">وعلشان نسهلها عليكي وفرنالك خدمات كتير عشان تناسبك <br>
@@ -131,17 +131,21 @@
             <div class="slider-container swiper">
                 <div class="slide-content">
                     <div class="card-wrapper swiper-wrapper">
+                        @foreach($captains as $cap)
+                            @php
+                            $user=\App\Models\User::find($cap->uid);
+                            @endphp
                         <div class="card swiper-slide">
                             <div class="img-content">
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
+                                    <img src="{{url("images/uploads/$cap->profile_photo")}}" alt="" class="card-img">
                                 </div>
                             </div>
                             <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
+                                <h2 class="name">{{$user->name}}</h2>
+                                <p class="description">مدربة
                                     معتمده
                                 </p>
                                 <div class="iconF">
@@ -151,166 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="img-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="{{url("images/wecoach/Ellipse 36.png")}}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="name">ندى محمد</h2>
-                                <p class="description">مدربة علاج مائي <br>
-                                    معتمده
-                                </p>
-                                <div class="iconF">
-                                    <i class="fa-brands fa-facebook fa-2x" style="font-size: 25px;"></i>
-                                    <i class="fa-brands fa-instagram fa-1x insta"></i>
-
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiper-button-next swiper-navBar"></div>
@@ -318,10 +163,10 @@
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex flex-column justify-content-center align-items-center">
             <p class="coaches1">احدث العروض
             </p>
-            <hr class="dashed-line">
+            <hr class="dashed-line mx-auto start-0">
         </div>
         <div class="row">
             <p class="coaches2">وعلشان نسهلها عليكي وفرنالك خدمات كتير عشان تناسبك <br>
@@ -329,11 +174,11 @@
                 مجالهم
             </p>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 col-lg-6 center" >
-                <div class="card cardone" >
+                <div class="card cardone mx-auto" >
                     <img src="{{url("images/wecoach/ladies2.jpeg")}}" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body mx-auto">
                         <h5 class="card-title">عرض الصحاب</h5>
                         <p class="card-text">من ٣ ل ٥ افراد خصم ٥٠ جنيه لكل
                             <br>
@@ -350,7 +195,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 card2 center" style=" " >
-                <div class="card cardone" >
+                <div class="card cardone mx-auto" >
                     <img src="{{url("images/wecoach/WhatsApp Image 2023-01-31 at 10.51.03 AM.jpeg")}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">عرض العيله</h5>
@@ -366,10 +211,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+
+        <div class="row d-flex flex-column justify-content-center align-items-center">
             <p class="coaches1">فروعنا
             </p>
-            <hr class="dashed-line">
+            <hr class="dashed-line mx-auto start-0">
         </div>
         <div class="row">
             <p class="coaches2">وعلشان نسهلها عليكي وفرنالك خدمات كتير عشان تناسبك <br>
@@ -377,131 +223,85 @@
                 مجالهم
             </p>
         </div>
+
         <div class="row">
+            @foreach($branches as $b)
             <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
+                <a href="#">
+                    <div class="card1 mx-auto img_wrap" style="width: 18rem;">
+                        <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
+                        <div class="img_description">
+                            <p class="text-center p-1">
+                                {{$b->name}}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
+
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12  center ok">
-                <div class="card1 img_wrap" style="width: 18rem;">
-                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">
-                    <div class="img_description">
-                        <p >
-                            فرع قوات الجويه
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <div class="row">
-            <button class="toggle BTN rounded-pill mx-auto d-block">شاهد المزيد</button>
-        </div>
+
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-12  center ok">--}}
+{{--                <div class="card1 img_wrap" style="width: 18rem;">--}}
+{{--                    <img src="{{url("images/wecoach/br.jpeg")}}" class="card-img-top IMG" alt="...">--}}
+{{--                    <div class="img_description">--}}
+{{--                        <p >--}}
+{{--                            فرع قوات الجويه--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
     </div>
     </div>
 @endsection

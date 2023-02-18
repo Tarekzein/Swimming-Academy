@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4"style="position: relative;">
                     <div class="info">
-                        <img src="{{url("images/wecoach/15a97d10a29110e8636d79f3c8e56cae.png")}}" style="height: 110px;width: 160px;" alt="">
+                        <img src="{{url("images/waves/Logo (1).png")}}" style="height: 110px;width: 160px;" alt="">
                         <p class="mb-4">
                             اكاديمية خاصة بالسيدات <br>فقط متخصصة فى الرياضات <br>المائية لكل الاعمار
                         </p>
-                        <div class="followus" style="color:#4F77B0;position: relative;top: 60px;">
+                        <div class="followus" style="color:#277BC0;position: relative;top: 60px;">
                             تابعنا على
                         </div>
                         <div style="position: relative;top: 70px; margin-bottom: 30px;">
@@ -22,7 +22,7 @@
 
                 <div class="col-md-6 col-lg-4"style="position: relative;">
                     <div class="links" style="position: relative; top: 20px;">
-                        <h5  class="lh-lg" style="color:#4F77B0;margin-top: 40px;">خدماتنا</h5>
+                        <h5  class="lh-lg" style="color:#277BC0;margin-top: 40px;">خدماتنا</h5>
                         <ul class="list-unstyled lh-lg">
                             <li class="swim" >
                                 <a class="swim1" href="#" >سباحة سيدات</a>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4"style="position: relative;">
                     <div class="links" style="position: relative; top: 20px;">
-                        <h5  class="lh-lg" style="color:#4F77B0;margin-top: 40px;">روابط مهمه</h5>
+                        <h5  class="lh-lg" style="color:#277BC0;margin-top: 40px;">روابط مهمه</h5>
                         <ul class="list-unstyled lh-lg">
                             <li class="swim" >
                                 <a class="swim1" href="#" >الرابط الاول</a>
@@ -58,7 +58,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4">
                     <div class="copyright">
                         <div>2022 &copy; copyrights <span style="color: white;">Dev Team</span></div>
@@ -69,5 +68,4 @@
 
         </div>
     </div>
-
 </div>

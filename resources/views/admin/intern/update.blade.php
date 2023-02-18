@@ -19,8 +19,8 @@
                             <div class="row px-5">
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
-                                        <label for="name" class="form-label">{{ __('الاسم') }}</label>
-                                        <input id="name" type="text" value="{{$user->name}}" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
+                                        <label for="name" class="form-label">{{ __('') }}</label>
+                                        <input id="name" placeholder="الاسم" type="text" value="{{$user->name}}" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
 
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -31,9 +31,9 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
-                                        <label for="email" class="form-label">{{ __('البريد الالكتروني') }}</label>
+                                        <label for="email" class="form-label">{{ __('') }}</label>
 
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email">
+                                        <input id="email" placeholder="البريد الالكتروني" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -48,16 +48,16 @@
                             <div class="row px-5">
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
-                                        <label for="address" class="form-label text-md-end">{{ __('العنوان') }}</label>
-                                        <input id="address" type="text" value="{{$user->address}}" class="form-control" name="address" required >
+                                        <label for="address" class="form-label text-md-end">{{ __('') }}</label>
+                                        <input id="address" placeholder="العنوان" type="text" value="{{$user->address}}" class="form-control" name="address" required >
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
-                                        <label for="password-confirm" class="form-label text-md-end">{{ __('رقم الواتس اب') }}</label>
+                                        <label for="password-confirm" class="form-label text-md-end">{{ __('') }}</label>
 
-                                        <input id="whatsapp" class="form-control" value="{{$user->whatsapp}}" type="text"  name="whatsapp" required >
+                                        <input id="whatsapp" placeholder="رقم الواتس اب" class="form-control" value="{{$user->whatsapp}}" type="text"  name="whatsapp" required >
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
                             <div class="row px-5">
                                 <div class="col-md-6">
                                     <div class="input-group input-group-outline my-3">
-                                        <label for="birthdate" class="form-label text-md-end">{{ __('تاريخ الميلاد') }}</label>
-                                        <input id="birthdate" type="date" value="{{$user->birthdate}}" class="form-control" name="birthdate" required >
+                                        <label for="birthdate" class="form-label text-md-end">{{ __('') }}</label>
+                                        <input id="birthdate" placeholder="تاريخ الميلاد" type="date" value="{{$user->birthdate}}" class="form-control" name="birthdate" required >
                                     </div>
                                 </div>
                                 <div class="col-md-6">

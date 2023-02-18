@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
 use App\Models\manager\Manager;
 use App\Models\User;
 use App\Traits\Manager\CreatesManager;
@@ -53,9 +54,15 @@ class CreateController extends Controller
 //            "facility_receipt"=>$data["facility_receipt"],
 //        ];
 
-        $manager= Manager::create(["uid"=>$uid]);
+        $manager= Manager::create(["uid"=>$uid,"branchID"=>$data["branchID"],"profile_status"=>"approved"]);
 
         return $manager;
+    }
+
+    public function showManagerForm(){
+        $branches=Branch::all();
+        $context=["branches"=>$branches];
+        return view("admin.manager.add",$context);
     }
 
 }

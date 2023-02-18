@@ -171,13 +171,15 @@
 
                                     <select class="form-select" id="academyID"  required name="academyID"
                                             aria-label="Default select example">
-                                        <option selected>Academy</option>
+                                        <option value="null" selected>Academy</option>
                                         @foreach($academies as $a)
 
                                             <option value="{{$a->id}}">{{$a->name}} </option>
                                         @endforeach
                                     </select>
+
                                 </div>
+                                <h6 class="text-danger text-sm select-message"></h6>
                             </div>
 
                             <div class="col-lg-6">
@@ -185,12 +187,14 @@
 
                                     <select  class="form-select" id="branch" required name="branchID"
                                              aria-label="Default select example">
-                                        <option selected >Branch</option>
+                                        <option value="null" selected >Branch</option>
                                         @foreach($branches as $b)
                                             <option value="{{$b->id}}">{{$b->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <h6 class="text-danger text-sm select-message"></h6>
+
                             </div>
 
                         </div>
@@ -285,13 +289,15 @@
 
                                     <select class="form-select" id="academyID"  required name="academyID"
                                             aria-label="Default select example">
-                                        <option selected>Academy</option>
+                                        <option value="null" selected>Academy</option>
                                         @foreach($academies as $a)
 
                                             <option value="{{$a->id}}">{{$a->name}} </option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <h6 class="text-danger text-sm select-message"></h6>
+
                             </div>
 
                             <div class="col-lg-6">
@@ -299,12 +305,14 @@
 
                                     <select  class="form-select" id="branch" required name="branchID"
                                              aria-label="Default select example">
-                                        <option selected >Branch</option>
+                                        <option value="null" selected >Branch</option>
                                         @foreach($branches as $b)
                                             <option value="{{$b->id}}">{{$b->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <h6 class="text-danger text-sm select-message"></h6>
+
                             </div>
 
                         </div>
@@ -522,6 +530,46 @@
 
     </div>
 
+    <div class="row pt-5">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header  cursor-pointer p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-secondary  flex-wrap d-flex align-items-center  shadow-dark border-radius-lg pt-4 pb-3">
+                    <div class="d-flex justify-content-evenly align-items-center">
+                        <h3 class="text-white text-lg-end text-capitalize pe-3">مرتبات الكباتن</h3>
+                        <div class="p-3">
+                            <x-searchbar/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div  class="card-body  px-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Captain Name</th>
+                            <th scope="col">Sessions Numbers</th>
+                            <th scope="col">Sessions Attendance</th>
+                            <th scope="col">Sessions Absent</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Month</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-body">
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
     <div class="position-fixed bottom-1 start-1 z-index-3">

@@ -11,6 +11,6 @@ class DeleteController extends Controller
     public function delete(Branch $branch){
 //        dd($manager);
         $branch->delete();
-        return back();
+        return redirect(route("admin.branches"))->with("message","Branch Deleted Successfully");
     }
 }

@@ -98,18 +98,14 @@
                                     <div class="input-group input-group-outline my-3">
 
                                         <select class="form-select border-secondary" required name="branchID" aria-label="Default select example">
-                                            <option selected>الفرع</option>
+                                            <option value="null" selected>الفرع</option>
                                             @foreach($branches as $b)
                                                 <option value="{{$b->id}}">{{$b->name}}</option>
                                             @endforeach
                                         </select>
-
-                                        @error('address')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
                                 </div>
 
                             </div>
@@ -187,24 +183,20 @@
                                     <div class="input-group input-group-outline my-3">
 
                                         <select class="form-select border-secondary" id="branch" required name="branchID" aria-label="Default select example">
-                                            <option selected>الفرع</option>
+                                            <option value="null" selected>الفرع</option>
                                             @foreach($branches as $b)
                                                 <option value="{{$b->id}}">{{$b->name}}</option>
                                             @endforeach
                                         </select>
-
-                                        @error('address')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-outline my-3">
                                         <select class="form-select border-secondary"  id="subs" disabled required name="subsID" aria-label="Default select example">
-                                            <option selected>الخدمة</option>
+                                            <option value="null" selected>الخدمة</option>
                                             @foreach($subscription as $s)
                                                 @php
                                                     $branch=\App\Models\Branch::find($s->branchID);
@@ -213,6 +205,8 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <h6 class="text-danger text-sm select-message"></h6>
+
                                 </div>
 
                             </div>

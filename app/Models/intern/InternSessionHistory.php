@@ -12,6 +12,8 @@ class InternSessionHistory extends Model
       "uid",
       "capID",
       "sessionID",
+      "sessionTime",
+      "attendance",
       "created_at",
       "updated_at",
     ];
